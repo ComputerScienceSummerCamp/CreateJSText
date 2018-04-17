@@ -5,9 +5,11 @@
 :toclevels: 2
 :source-highlighter: coderay
 
-= 導入
+= Javascriptコース
 
-== まず、Javascriptコースでは何をするの？
+== 導入
+
+=== まず、Javascriptコースでは何をするの？
 
 このコースでは、Javascriptで簡単なゲームを作っていきます。今回は「CreateJS」というライブラリを使います。
 
@@ -17,30 +19,30 @@
 
 最終日は、作ったゲームをみんなでプレイしましょう！
 
-== Javascriptってなあに？
+=== Javascriptってなあに？
 
 Javascript（ジャバスクリプト）とは、プログラミング言語の１つで、Webゲームを作るときに使われる言語です。Javaと名前は似ていますが全く違う言語です。
 
-== CreateJSってなあに？
+=== CreateJSってなあに？
 
 CreateJSは、Webゲームをより簡単に作るためのものです。ゲームを作る際にとても便利です。
 
-== Javascriptって何に使われているの？
+=== Javascriptって何に使われているの？
 
 Webページの多くは、Javascriptで作られています。
 
-= WebStromを使おう
+== WebStromを使おう
 
-== WebStormとは
+=== WebStormとは
 
 WebStormとは、HTMLやJavascriptのための統合開発環境です。簡単に言うと、これ一つで、WebJavascriptのコーディング、実行までできる便利なものです。
 
-== WebStormの使い方
+=== WebStormの使い方
 
 まず、WebSormのアイコンをクリックして、WebStormを起動させます。
 // TODO 初回の起動が必要か？できればこちらで済ましたい。
 
-=== 新しいプロジェクトを作る
+==== 新しいプロジェクトを作る
 
 WebStormが起動したら、`Create New Project` をクリックして、新しいプロジェクトを作ります。
 
@@ -56,7 +58,7 @@ image::img/webstorm/webstorm2.png[]
 
 image::img/webstorm/webstorm3.png[]
 
-=== HTMLファイルを作成する
+==== HTMLファイルを作成する
 
 次にHTMLファイルを作成してみましょう。左のエリアのフォルダを右クリックして、New → HTML Fileを選択します。すると、小さいウィンドウが出てくるので、そこの `Name` という欄にファイル名を入力しましょう。HTMLのファイル名はなんでもいいですが、ここでは名前をindex.htmlとしておきます。
 
@@ -66,7 +68,7 @@ image::img/webstorm/webstorm4.png[]
 
 image::img/webstorm/webstorm5.png[]
 
-=== ブラウザ上で表示してみよう
+==== ブラウザ上で表示してみよう
 
 それでは、このHTMLファイルをブラウザ上で表示してみましょう。ブラウザで表示するためには、左上のほうにある、小さいアイコンたちがあるのがわかりますか。そのアイコンのうち1つをクリックしてください。
 
@@ -78,7 +80,7 @@ image::img/webstorm/webstorm6.png[]
 
 ここからゲーム画面などを追加していくので、今は真っ白いページで大丈夫です。
 
-=== タイトルを変えて、ブラウザで表示してみよう
+==== タイトルを変えて、ブラウザで表示してみよう
 
 titleタグで囲まれたところを変更しましょう。こうすることで、ブラウザで表示したときに、ページのタイトルが変わります。
 
@@ -98,11 +100,11 @@ titleタグで囲まれたところを変更しましょう。こうすること
 
 // TODO 結果の表示
 
-= CreateJSで作られたゲームを改造してみよう
+== CreateJSで作られたゲームを改造してみよう
 
 この賞では、CreateJSを深く学ぶ前に、CreateJSで作られたゲームのサンプルを使って遊んでみましょう。遊んだら、このゲームを少し改造してみましょう。
 
-== CreateJSのゲームのサンプル
+=== CreateJSのゲームのサンプル
 
 以下にサンプルのソースコードの載せます。
 
@@ -113,19 +115,19 @@ titleタグで囲まれたところを変更しましょう。こうすること
 include::process/phase20.html[]
 ----
 
-== 少し改造してみる。
+=== 少し改造してみる。
 
 背景の色、敵の数、プレイヤーの色、プレイヤーの動きやすさなどを変えてみましょう。
 
 // TODO 変え方をのせる。
 
-= CreateJSでシューティングゲームを作ってみる。
+== CreateJSでシューティングゲームを作ってみる。
 
 さて、前章でシューティングゲームを少し作り変えてみました。この章では、そのゲームがどのような過程でつくられているのかを詳しく見ていきましょう。
 
-== CreateJSを使うための下準備
+=== CreateJSを使うための下準備
 
-=== HTMLファイルの作成
+==== HTMLファイルの作成
 
 まずは、 `New -> HTML File` でHTMLファイルを作成します。この中にゲームを作るためのコードを記述していきます。HTMLファイルを作ると、以下のようなものが出来上がると思います。
 
@@ -136,7 +138,7 @@ include::process/phase0.html[]
 
 titleはshootingにしておきました。自分で好きなタイトルに変えて構いません。
 
-=== canvasタグの追加
+==== canvasタグの追加
 
 次は、ゲーム画面をどのくらいの大きさにするかを決めます。 `<canvas id="myCanvas" width="960" height="540"></canvas>` というコードを以下のようにbodyタグ内に追加します。
 
@@ -151,7 +153,7 @@ canvasタグのidはここでは、myCanvasとしておきます。
 
 また、width属性で横幅を調整できて、height属性で高さを調整できます。ここでは、横が960、高さが540となっていますね。
 
-=== CreateJSを使えるようにする
+==== CreateJSを使えるようにする
 
 CreateJSを使うためには、それを読み込む必要があります。どう読み込むかといいますと、以下のようにscriptタグを追加して読み込みます。6行目に追加してある、 `<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>` ですね。
 
@@ -160,7 +162,7 @@ CreateJSを使うためには、それを読み込む必要があります。ど
 include::process/phase2.html[]
 ----
 
-=== 関数を定義する
+==== 関数を定義する
 
 次に、ゲームのプログラムを記述する関数を定義します。
 
@@ -173,9 +175,9 @@ include::process/phase3.html[]
 
 `window.addEventListener("load", init);` は、CreateJSを読み込んでから、init関数を呼び出します。つまり、CreateJSを完全に読み込んでから、ゲームが始まります。もしCreateJSを読み込む前にゲームが始まってしまうと大変ですから、そういうことがないようにしています。
 
-== ゲーム画面の表示
+=== ゲーム画面の表示
 
-=== Stageの作成
+==== Stageの作成
 
 CreateJSでは、まずStageという生地をベースに他のオブジェクトを追加します。ですのでまず最初はStageを作ります。
 
@@ -188,7 +190,7 @@ include::process/phase4.html[lines=11..13]
 
 ここで注意したいのが、new createjs.Stageの中の文字。これは、canvasタグで指定したidと同じにしなければいけません。この場合だと、 `myCanvas` とする必要があります。
 
-=== 背景の表示
+==== 背景の表示
 
 このままでは、Stageに何も追加されていないので、次はゲーム画面の背景を追加してみましょう。背景の色はここでは黒色にしています。
 
@@ -208,7 +210,6 @@ include::process/phase5.html[lines=11..19]
 これで実行してみて、黒い四角形が表示されていればOKです。
 
 image::img/img1.png[]
-
 
 === プレイヤーの表示
 
@@ -396,7 +397,7 @@ include::process/phase17.html[lines=40..72]
 
 // TODO 画面外にでた時の処理
 
-=== 弾と敵の当たり判定をつける
+==== 弾と敵の当たり判定をつける
 
 プレイヤーと敵の当たり判定をつけたやり方と同じように、全ての弾と全ての敵との当たり判定をします。そのために、2重のfor文を使います。
 
@@ -405,7 +406,7 @@ include::process/phase17.html[lines=40..72]
 include::process/phase18.html[lines=40..81]
 ----
 
-=== 弾が当たったら敵を消す
+==== 弾が当たったら敵を消す
 
 あとは、 `stage.removeChild` で、stageから弾と敵を削除します。配列からも、`spice` で削除します。
 
