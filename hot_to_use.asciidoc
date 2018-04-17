@@ -1,0 +1,435 @@
+:sectnums:
+:chapter-label:
+:toc: left
+:toc-title: 目次
+:toclevels: 2
+:source-highlighter: coderay
+
+= 導入
+
+== まず、Javascriptコースでは何をするの？
+
+このコースでは、Javascriptで簡単なゲームを作っていきます。今回は「CreateJS」というライブラリを使います。
+
+１日目は、Javascriptの基礎知識やCreateJSの使い方、簡単なゲームの作り方を学びます。
+
+２、３日目は、初日で学んだ知識をもとにゲームを作っていきます。何人かのチームに分かれてゲームを作っていきましょう。
+
+最終日は、作ったゲームをみんなでプレイしましょう！
+
+== Javascriptってなあに？
+
+Javascript（ジャバスクリプト）とは、プログラミング言語の１つで、Webゲームを作るときに使われる言語です。Javaと名前は似ていますが全く違う言語です。
+
+== CreateJSってなあに？
+
+CreateJSは、Webゲームをより簡単に作るためのものです。ゲームを作る際にとても便利です。
+
+== Javascriptって何に使われているの？
+
+Webページの多くは、Javascriptで作られています。
+
+= WebStromを使おう
+
+== WebStormとは
+
+WebStormとは、HTMLやJavascriptのための統合開発環境です。簡単に言うと、これ一つで、WebJavascriptのコーディング、実行までできる便利なものです。
+
+== WebStormの使い方
+
+まず、WebSormのアイコンをクリックして、WebStormを起動させます。
+// TODO 初回の起動が必要か？できればこちらで済ましたい。
+
+=== 新しいプロジェクトを作る
+
+WebStormが起動したら、`Create New Project` をクリックして、新しいプロジェクトを作ります。
+
+image::img/webstorm/webstorm1.png[]
+
+次に、プロジェクトを作る場所を指定します。入力されている文字の途中までは変えなくてもいいですが、最後のスラッシュ以降の文字は変えましょう。名前はなんでもいいですが、ここではuntitledにしておきましょう。
+
+// TODO いいプロジェクト名を考えておく
+
+image::img/webstorm/webstorm2.png[]
+
+入力ができたら、右下の `Create` ボタンをクリックします。すると、以下の画面が出できたと思います。
+
+image::img/webstorm/webstorm3.png[]
+
+=== HTMLファイルを作成する
+
+次にHTMLファイルを作成してみましょう。左のエリアのフォルダを右クリックして、New → HTML Fileを選択します。すると、小さいウィンドウが出てくるので、そこの `Name` という欄にファイル名を入力しましょう。HTMLのファイル名はなんでもいいですが、ここでは名前をindex.htmlとしておきます。
+
+image::img/webstorm/webstorm4.png[]
+
+名前が入力できたら、 `OK` ボタンをクリックします。すると以下のようにHTMLファイルが作られます。
+
+image::img/webstorm/webstorm5.png[]
+
+=== ブラウザ上で表示してみよう
+
+それでは、このHTMLファイルをブラウザ上で表示してみましょう。ブラウザで表示するためには、左上のほうにある、小さいアイコンたちがあるのがわかりますか。そのアイコンのうち1つをクリックしてください。
+
+image::img/webstorm/webstorm6.png[]
+
+すると、真っ白いページが表示されたと思います。上のバーのところに `Title` と表示されていればOKです。
+
+//TODO Webページの表示結果
+
+ここからゲーム画面などを追加していくので、今は真っ白いページで大丈夫です。
+
+=== タイトルを変えて、ブラウザで表示してみよう
+
+titleタグで囲まれたところを変更しましょう。こうすることで、ブラウザで表示したときに、ページのタイトルが変わります。
+
+[source, html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>タイトル！</title>
+</head>
+<body>
+
+</body>
+</html>
+----
+
+// TODO 結果の表示
+
+= CreateJSで作られたゲームを改造してみよう
+
+この賞では、CreateJSを深く学ぶ前に、CreateJSで作られたゲームのサンプルを使って遊んでみましょう。遊んだら、このゲームを少し改造してみましょう。
+
+== CreateJSのゲームのサンプル
+
+以下にサンプルのソースコードの載せます。
+
+// TODO コードのインポート
+
+[source, javascript]
+----
+include::process/phase20.html[]
+----
+
+== 少し改造してみる。
+
+背景の色、敵の数、プレイヤーの色、プレイヤーの動きやすさなどを変えてみましょう。
+
+// TODO 変え方をのせる。
+
+= CreateJSでシューティングゲームを作ってみる。
+
+さて、前章でシューティングゲームを少し作り変えてみました。この章では、そのゲームがどのような過程でつくられているのかを詳しく見ていきましょう。
+
+== CreateJSを使うための下準備
+
+=== HTMLファイルの作成
+
+まずは、 `New -> HTML File` でHTMLファイルを作成します。この中にゲームを作るためのコードを記述していきます。HTMLファイルを作ると、以下のようなものが出来上がると思います。
+
+[source, html]
+----
+include::process/phase0.html[]
+----
+
+titleはshootingにしておきました。自分で好きなタイトルに変えて構いません。
+
+=== canvasタグの追加
+
+次は、ゲーム画面をどのくらいの大きさにするかを決めます。 `<canvas id="myCanvas" width="960" height="540"></canvas>` というコードを以下のようにbodyタグ内に追加します。
+
+[source, html]
+----
+include::process/phase1.html[]
+----
+
+canvasタグは、文字通り、キャンバスのごとく自由に絵をかくことができます。そのcanvasの中にゲームを描いていくような感じです。
+
+canvasタグのidはここでは、myCanvasとしておきます。
+
+また、width属性で横幅を調整できて、height属性で高さを調整できます。ここでは、横が960、高さが540となっていますね。
+
+=== CreateJSを使えるようにする
+
+CreateJSを使うためには、それを読み込む必要があります。どう読み込むかといいますと、以下のようにscriptタグを追加して読み込みます。6行目に追加してある、 `<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>` ですね。
+
+[source, html]
+----
+include::process/phase2.html[]
+----
+
+=== 関数を定義する
+
+次に、ゲームのプログラムを記述する関数を定義します。
+
+[source, html]
+----
+include::process/phase3.html[]
+----
+
+//TODO loadはページを読み込んでから？それともライブラリを読み込んでから？
+
+`window.addEventListener("load", init);` は、CreateJSを読み込んでから、init関数を呼び出します。つまり、CreateJSを完全に読み込んでから、ゲームが始まります。もしCreateJSを読み込む前にゲームが始まってしまうと大変ですから、そういうことがないようにしています。
+
+== ゲーム画面の表示
+
+=== Stageの作成
+
+CreateJSでは、まずStageという生地をベースに他のオブジェクトを追加します。ですのでまず最初はStageを作ります。
+
+[source, javascript]
+----
+include::process/phase4.html[lines=11..13]
+----
+
+（ここからは、init関数の中だけを変更していくので、その他のHTMLは省略します。）
+
+ここで注意したいのが、new createjs.Stageの中の文字。これは、canvasタグで指定したidと同じにしなければいけません。この場合だと、 `myCanvas` とする必要があります。
+
+=== 背景の表示
+
+このままでは、Stageに何も追加されていないので、次はゲーム画面の背景を追加してみましょう。背景の色はここでは黒色にしています。
+
+[source, javascript]
+----
+include::process/phase5.html[lines=11..19]
+----
+
+`new createjs.Shape()` で、シェイプを作ります。ここで注意してほしいのは、**new**をつけ忘れないようにしてくださいね。それで、これを変数として保存しておきたいので、 `var stage = new createjs.Stage("myCanvas");` というふうに変数に格納します。
+
+`bg.graphics.beginFill("black").drawRect(0,0,960,540);` は、シェイプの特徴を詳しく記述しています。ここでは背景を指しますね。ではどんなシェイプかといいますと、背景が黒で、座標(0,0)が始点の幅960・高さ540の長方形。これで背景を表しています。
+
+あとはその背景をstageに追加します。 `stage.addChild(bg);` でステージに背景を追加できます。これをしないと、背景が表示されないことになります。
+
+また、最後に `stage.update()` で毎回背景を描画してくれます。
+
+これで実行してみて、黒い四角形が表示されていればOKです。
+
+image::img/img1.png[]
+
+
+=== プレイヤーの表示
+
+[source, javascript]
+----
+include::process/phase6.html[lines=11..23]
+----
+
+背景と同じ要領で、プレイヤーもシェイプで作っていきます。プレイヤーの色は白にして、形は丸にでもしておきましょう。
+
+この `drawCircle(100,100,10)` の意味は、中心の座標が(100,100)で、半径が10の円という意味です。
+
+// TODO 10の単位はピクセルかな？
+
+実行してみると、丸い円が表示されます。
+
+=== プレイヤーがマウスで動けるようにする
+
+では、このプレイヤーを動かしてみましょう。
+
+==== tickイベントを作る
+
+まず、プレイヤーを動かすために、更新処理をする必要があって、それをするために、createjs.Tickerクラスのtickイベントを使います。
+
+[source, javascript]
+----
+include::process/phase7.html[lines=11..28]
+----
+
+`createjs.Ticker.setFPS(60);` とすることで、１秒間に60回の頻度で画面が更新されていきます。また、 `handleTick` という関数を作って、その中に、  `stage.update()` を入れましょう。
+
+==== プレイヤーとマウスの動きを同期させる
+
+次に、プレイヤーがマウスの動きと同じになるようにしてみましょう。
+
+[source, javascript]
+----
+include::process/phase8.html[lines=11..31]
+----
+
+`player.x = stage.mouseX;` で、プレイヤーのx座標をマウスのx座標に変えています。y座標も同様です。
+
+こうすることで、マウスについてくるようになりますが、、、
+
+何かおかしいですよね。マウスの位置とプレイヤーの位置がずれているような。。
+実は、プレイヤーを円で描画するときに、 `player.graphics.beginFill("white").drawCircle(100,100,10);` としましたよね。注目してほしいのが 、drawCircleのところ。中心座標が（100,100）となっていますが、実はこれ、相対的な座標になっています。つまり、マウスで動かしても、 `マウスの位置+100` の位置に円が描画されることになってしまうのです。
+
+これを修正するには、drawCircleのところを `drawCircle(0,0,10)` にしてしまいましょう。
+
+
+[source, javascript]
+----
+include::process/phase9.html[lines=11..31]
+----
+
+こうすれば、ちゃんとついてきますね！
+
+image::img/img2.png[]
+
+=== 敵を出現させる
+
+次は敵を出現させてみましょう。今回は、100フレームに１体、ランダムな位置から敵を出現させてみます。
+
+==== 100フレームに１体敵を出現させる
+
+まずは、フレームを数える必要がありますね。そこで、 `count` という変数を作って、フレームを数えましょう。フレーム数を数えるには、毎回 `count` を１ずつ足していく必要がありますね。
+
+[source, javascript]
+----
+include::process/phase10.html[lines=11..38]
+----
+
+`count` の変数宣言は、init関数の最初の方で行います。handleTick関数内で `count` を宣言してしまうと、ローカル変数となってしまい、 `count` が毎回0で初期化されてしまいます。毎回0になってしまってはしょうがないので、init関数の最初の方で宣言することによって、countの情報が無くならずに、countが増え続けます。
+
+if文は、丸括弧内の式の条件が正しければその下の処理を実行するので、ここでは `count % 100 === 0` であれば、下の中括弧の処理を実行します。では、count % 100 === 0 とは何なのでしょうか。
+
+まず、 `count % 100` の意味は、「 `count` を100で割った余り」です。例えば、`103 % 100` なら答えは3だし、 `200 % 100` なら答えは0です。
+
+そうすると、`count % 100 === 0` の意味は、「`count` を100で割った余りが0になるかどうか」です。つまり、 `count` が100の倍数になったときに、敵が出現します。
+
+// TODO コラム。なぜ==ではなく===なのか
+
+==== 右端から敵を出現させる
+
+次に、プレイヤーを作った要領で敵を作ってみましょう。
+
+[source, javascript]
+----
+include::process/phase11.html[lines=26..43]
+----
+
+敵を作る時、位置を決めてしまいます。ここでは、 `enemy.x = 960;` でx座標を960(右端)、 `enemy.y = 540 * Math.random();` でy座標をランダムにしています。
+
+`Math.random()` は、0以上1未満の小数を返します。よって、 `540 * Math.random();` は、0以上540未満の数になります。
+
+==== 敵を保存しておく「配列」
+
+ここで、敵を作るだけだと、後に敵を動かすことができなくなるので、敵を保存しておく「配列」用意します。この配列もcountと同じように、init関数の最初の方に宣言します。
+
+
+[source, javascript]
+----
+include::process/phase12.html[lines=11..45]
+----
+
+if文の最後のほうに、`enemyList.push(enemy)` と書いてありますね。これは、 `enemyList` という配列に `enemy` を追加していく処理です。
+
+==== 全ての敵を動かす
+
+敵１つずつのx座標を左にずらせば大丈夫そうですね。for文を使って1つずつ配列にアクセスしていって、x座標の値を1ずつ減らしていきましょう。
+
+[source, javascript]
+----
+include::process/phase13.html[lines=27..48]
+----
+
+これで敵もちゃんと動くと思います。
+
+image::img/img3.png[]
+
+// TODO 座標の基準点の話（左上）
+
+=== 敵とプレイヤーの当たり判定
+
+敵とプレイヤーの当たり判定をつけるために、CreateJSで用意されている `hitTest` を使います。これを使うと、点とシェイプの当たり判定がわかります。
+
+[source, javascript]
+----
+include::process/phase14.html[lines=27..55]
+----
+
+for文で敵全てとプレイヤーの当たり判定を確認します。 `hitTest` の括弧の中は、プレイヤーのx座標とy座標をそれぞれ入れましょう。
+
+また、`enemyList[i].localToLocal(0,0, player);` は何かと言いますと、enemyをローカル座標に変えています。こうすることで、hitTestができるようになります。
+
+// TODO なぜローカル座標に変換する必要があるのか？
+
+=== ゲームオーバー画面に移動する
+
+敵と接触したら、今度はゲームオーバー画面に移動してみましょう。 `gameOver` 関数を作って、当たり判定をしたif文の中に `gameOver` 関数を呼び出す処理をしてみましょう。
+
+[source, javascript]
+----
+include::process/phase15.html[lines=27..62]
+----
+
+`gameOver` 関数内では、ゲームオーバーというポップアップを表示して、Tickerとstageの全てのイベントリスナーを消しています。つまり、ゲームを完全に止めるという処理です。
+
+image::img/img4.png[]
+
+=== プレイヤーが弾を発射できるようにする
+
+次に、プレイヤーがクリックで弾を発射できるようにしましょう。
+
+==== マウスイベントの登録
+
+クリックをして何かをするためには、stageにマウスイベントの登録が必要となります。
+
+[source, javascript]
+----
+include::process/phase16.html[lines=11..31]
+----
+
+`stage.addEventListener("click", handleClick);` をすることで、stageにclickのイベントが登録されます。つまり、クリックをした時の処理がかけるようになります。その処理は、新たに作った `handleClick` 関数で行います。
+
+==== クリックで弾を出現させる
+
+`handleClick` 関数内で、弾を出現させる処理をかいてみましょう。
+
+[source, javascript]
+----
+include::process/phase17.html[lines=11..38]
+----
+
+敵を作ったのと同じように、弾も作っていきましょう。座標はプレイヤーの座標と同じでいいですね。敵で `enemyList` を作ったように、弾も `bulletList` という配列をinitの最初の方に宣言して、その配列に順次格納していくようにしましょう。
+
+==== 弾を動かす
+
+敵を動かしたように、弾も同じ方法で動かしましょう。今度はhandleTick内を修正します。
+
+[source, javascript]
+----
+include::process/phase17.html[lines=40..72]
+----
+
+// TODO 画面外にでた時の処理
+
+=== 弾と敵の当たり判定をつける
+
+プレイヤーと敵の当たり判定をつけたやり方と同じように、全ての弾と全ての敵との当たり判定をします。そのために、2重のfor文を使います。
+
+[source, javascript]
+----
+include::process/phase18.html[lines=40..81]
+----
+
+=== 弾が当たったら敵を消す
+
+あとは、 `stage.removeChild` で、stageから弾と敵を削除します。配列からも、`spice` で削除します。
+
+[source, javascript]
+----
+include::process/phase19.html[lines=40..85]
+----
+
+`bulletList.splice(i, 1);` は、配列のi番目の要素から1つだけを削除します。ここでは、敵に当たった弾が削除されますね。ちなみに、`bulletList.splice(i, 2);` にすると、配列のi番目の要素とその次の要素の2つの要素が削除されてしまいます。
+
+//=== タイトルをつける
+// TODO シーンの遷移どうしよう？？
+
+//画像の入れ方
+//キーボード操作かマウス操作か。スマホ向けか。
+// TODO JSの基礎（変数など）をおしえてもいいかも
+// TODO 途中で演習問題をつくってみてもいいかも
+// TODO letで宣言
+// forかforeachか
+// TODO コメント入れる？
+// TODO git pageで公開
+// TODO 関数のポイントなどを載せる？
+// TODO ハードコーディングについて
+// TODO 説明の図を使いたい。
+// TODO ソースコードの部分的に背景をハイライトしてくれる機能を使う
+
+// 参考：https://ics.media/tutorial-createjs/game_shooting.html

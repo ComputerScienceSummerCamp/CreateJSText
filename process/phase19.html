@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shooting</title>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script>
+        //createJSの読み込みが終わってから、init関数をよぶ。
+        window.addEventListener("load", init);
+
+        function init() {
+            var stage = new createjs.Stage("myCanvas");
+            var count = 0;
+            var enemyList = [];
+            var bulletList = [];
+
+            var bg = new createjs.Shape();
+            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            stage.addChild(bg);
+
+            var player = new createjs.Shape();
+            player.graphics.beginFill("white").drawCircle(0,0,10);
+            stage.addChild(player);
+
+            stage.addEventListener("click", handleClick);
+
+            createjs.Ticker.setFPS(60);
+            createjs.Ticker.addEventListener("tick", handleTick);
+
+            function handleClick() {
+                var bullet = new createjs.Shape();
+                bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+                bullet.x = player.x;
+                bullet.y = player.y;
+
+                bulletList.push(bullet);
+                stage.addChild(bullet);
+            }
+
+            function handleTick() {
+                player.x = stage.mouseX;
+                player.y = stage.mouseY;
+
+                if(count % 100 === 0){
+                    var enemy = new createjs.Shape();
+                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+
+                    enemy.x = 960;
+                    enemy.y = 540 * Math.random();
+
+                    stage.addChild(enemy);
+                    enemyList.push(enemy);
+                }
+                count = count + 1;
+
+                for(var i = 0; i < enemyList.length; i++){
+                    enemyList[i].x -= 2;
+                }
+
+                for(var i = 0; i < bulletList.length; i++){
+                    bulletList[i].x += 10;
+                }
+
+                for(var i = 0; i < enemyList.length; i++){
+                    var enemyLocal = enemyList[i].localToLocal(0,0, player);
+                    if(player.hitTest(enemyLocal.x, enemyLocal.y)){
+                        gameOver();
+                    }
+                }
+
+                for(var i = 0; i < bulletList.length; i++){
+                    for(var j = 0; j < enemyList.length; j++){
+                        var localPoint = bulletList[i].localToLocal(0,0,enemyList[j]);
+                        if(enemyList[j].hitTest(localPoint.x, localPoint.y)){
+                            stage.removeChild(bulletList[i]);
+                            bulletList.splice(i, 1);
+
+                            stage.removeChild(enemyList[j]);
+                            enemyList.splice(j, 1);
+                        }
+                    }
+                }
+
+                stage.update()
+            }
+
+            function gameOver(){
+                alert("ゲームオーバー");
+
+                createjs.Ticker.removeAllEventListeners();
+                stage.removeAllEventListeners();
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" width="960" height="540"></canvas>
+</body>
+</html>

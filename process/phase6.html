@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shooting</title>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script>
+        //createJSの読み込みが終わってから、init関数をよぶ。
+        window.addEventListener("load", init);
+
+        function init() {
+            var stage = new createjs.Stage("myCanvas");
+
+            var bg = new createjs.Shape();
+            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            stage.addChild(bg);
+
+            var player = new createjs.Shape();
+            player.graphics.beginFill("white").drawCircle(100,100,10);
+            stage.addChild(player);
+
+            stage.update()
+        }
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" width="960" height="540"></canvas>
+</body>
+</html>
