@@ -554,15 +554,21 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_プレイヤーが弾を発射できるようにする">4.8. プレイヤーが弾を発射できるようにする</a></li>
 </ul>
 </li>
-<li><a href="#_javascriptの基本">5. Javascriptの基本</a>
+<li><a href="#_キー入力でプレイヤーを操作してみよう">5. キー入力でプレイヤーを操作してみよう</a>
 <ul class="sectlevel2">
-<li><a href="#_変数について">5.1. 変数について</a></li>
-<li><a href="#_変数の中身がどうなっているか知りたい時">5.2. 変数の中身がどうなっているか知りたい時</a></li>
-<li><a href="#_if文">5.3. if文</a></li>
-<li><a href="#_for文">5.4. for文</a></li>
-<li><a href="#_配列">5.5. 配列</a></li>
-<li><a href="#_関数について">5.6. 関数について</a></li>
-<li><a href="#_クラスについて">5.7. クラスについて</a></li>
+<li><a href="#_プレイヤーを動かす">5.1. プレイヤーを動かす</a></li>
+<li><a href="#_スペースキーを押して弾を発射させる">5.2. スペースキーを押して弾を発射させる</a></li>
+</ul>
+</li>
+<li><a href="#_javascriptの基本">6. Javascriptの基本</a>
+<ul class="sectlevel2">
+<li><a href="#_変数について">6.1. 変数について</a></li>
+<li><a href="#_変数の中身がどうなっているか知りたい時">6.2. 変数の中身がどうなっているか知りたい時</a></li>
+<li><a href="#_if文">6.3. if文</a></li>
+<li><a href="#_for文">6.4. for文</a></li>
+<li><a href="#_配列">6.5. 配列</a></li>
+<li><a href="#_関数について">6.6. 関数について</a></li>
+<li><a href="#_クラスについて">6.7. クラスについて</a></li>
 </ul>
 </li>
 </ul>
@@ -1694,13 +1700,171 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
-<h2 id="_javascriptの基本">5. Javascriptの基本</h2>
+<h2 id="_キー入力でプレイヤーを操作してみよう">5. キー入力でプレイヤーを操作してみよう</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ここまではマウス操作でプレイヤーを動かしましたが、今度はキーボードで操作できるようにしてみましょう。</p>
+</div>
+<div class="sect2">
+<h3 id="_プレイヤーを動かす">5.1. プレイヤーを動かす</h3>
+<div class="paragraph">
+<p>まず、init関数の中に以下のものを追加します。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keydown</span><span class="delimiter">&quot;</span></span>, handleKeydown);
+window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keyup</span><span class="delimiter">&quot;</span></span>, handleKeyUp);
+
+<span class="keyword">function</span> <span class="function">handleKeydown</span>(event){
+  <span class="comment">// キーが押された時の処理</span>
+}
+
+<span class="keyword">function</span> <span class="function">handleKeyUp</span>(event) {
+  <span class="comment">// キーを離した時の処理</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ここから以下のように、キーが押された時にtrue、キーを離したときにfalseになる変数をそれぞれ用意して、処理をかきます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">            window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keydown</span><span class="delimiter">&quot;</span></span>, handleKeyDown);
+            window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keyup</span><span class="delimiter">&quot;</span></span>, handleKeyUp);
+
+            const SPACE = <span class="integer">32</span>;
+            const LEFT = <span class="integer">37</span>;
+            const UP = <span class="integer">38</span>;
+            const RIGHT = <span class="integer">39</span>;
+            const DOWN = <span class="integer">40</span>;
+
+            let isSpace = <span class="predefined-constant">false</span>;
+            let isLeft = <span class="predefined-constant">false</span>;
+            let isUp = <span class="predefined-constant">false</span>;
+            let isRight = <span class="predefined-constant">false</span>;
+            let isDown = <span class="predefined-constant">false</span>;
+
+            <span class="keyword">function</span> <span class="function">handleKeyDown</span>(event) {
+                let keyCode = event.keyCode;
+
+                <span class="keyword">if</span> (keyCode === SPACE) {
+                    isSpace = <span class="predefined-constant">true</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === LEFT) {
+                    isLeft = <span class="predefined-constant">true</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === UP) {
+                    isUp = <span class="predefined-constant">true</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === RIGHT) {
+                    isRight = <span class="predefined-constant">true</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === DOWN) {
+                    isDown = <span class="predefined-constant">true</span>;
+                }
+            }
+
+            <span class="keyword">function</span> <span class="function">handleKeyUp</span>(event) {
+                let keyCode = event.keyCode;
+
+                <span class="keyword">if</span> (keyCode === SPACE) {
+                    isSpace = <span class="predefined-constant">false</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === LEFT) {
+                    isLeft = <span class="predefined-constant">false</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === UP) {
+                    isUp = <span class="predefined-constant">false</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === RIGHT) {
+                    isRight = <span class="predefined-constant">false</span>;
+                }
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === DOWN) {
+                    isDown = <span class="predefined-constant">false</span>;
+                }
+            }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>プログラムが長く見えますが、５回同じようなことをしているだけなので、１個ずつみていきましょう。</p>
+</div>
+<div class="paragraph">
+<p>まず、handleKeyDown関数内の <code>let keyCode = event.keyCode;</code> は、押されたキーが何であるかを取得して（厳密にはキーコードをとってきます）、それをkeyCode変数に格納します。</p>
+</div>
+<div class="paragraph">
+<p>スペースキーのキーコードは32らしいので、 <code>const SPACE = 32</code> で、SPACEという <strong>定数</strong> を作ります。定数というのは、あとから値を変更できないもののことです。これでSPACEという定数を使う限り、スペースキーのキーコードが32であることが保証されるので、何か変更したくない値を作りたいときは定数を使いましょう。</p>
+</div>
+<div class="paragraph">
+<p>それから、<code>if (keyCode === SPACE) {}</code> でキーコードがスペースキーであるかを判定して、もしそうであれば、isSpace変数をtrueにします。こうすることで、スペースキーが押されたという状態を表すことができます。キーを離した場合も同様です。</p>
+</div>
+<div class="paragraph">
+<p>他のキーについても同様のことが言えます。</p>
+</div>
+<div class="paragraph">
+<p>あとは、isSpace, isUpなどの変数をどう使うかです。以下のように使います。前の章で</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">player.x = stage.mouseX;
+player.y = stage.mouseY;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>としていたところを、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">if</span>(isLeft === <span class="predefined-constant">true</span>) {
+    player.x -= <span class="integer">3</span>;
+}
+<span class="keyword">if</span>(isUp === <span class="predefined-constant">true</span>){
+    player.y -= <span class="integer">3</span>;
+}
+<span class="keyword">if</span>(isRight === <span class="predefined-constant">true</span>){
+    player.x += <span class="integer">3</span>;
+}
+<span class="keyword">if</span>(isDown === <span class="predefined-constant">true</span>) {
+    player.y += <span class="integer">3</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>のようにします。isLeftがtrueなら（左キーが押されているなら）、プレイヤーのx座標を-3します（プレイヤーを左に移動させます）。他の方向でも同じようにすれば、キー入力でプレイヤーを動かすことができます。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_スペースキーを押して弾を発射させる">5.2. スペースキーを押して弾を発射させる</h3>
+<div class="paragraph">
+<p>スペースキーを押したら、弾を出現させる処理を書けばいいので、さっき書いたコードの下あたりに以下のコードを追加しましょう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">if</span>(isSpace === <span class="predefined-constant">true</span>) {
+    let bullet = <span class="keyword">new</span> createjs.Shape();
+    bullet.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">3</span>);
+    bullet.x = player.x;
+    bullet.y = player.y;
+
+    bulletList.push(bullet);
+    stage.addChild(bullet);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>これは、handleClick関数内で書いた処理をそっくりそのまま書けばOKですね。
+これでプレイヤーから弾をキー入力で発射できるようになったと思います。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javascriptの基本">6. Javascriptの基本</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>この章では、Javascriptという言語の基本的な構文や使い方について学んでいきます。</p>
 </div>
 <div class="sect2">
-<h3 id="_変数について">5.1. 変数について</h3>
+<h3 id="_変数について">6.1. 変数について</h3>
 <div class="paragraph">
 <p>みなさんは、「変数」という言葉は聞いたことがあるでしょうか？他のプログラミング言語にも変数はあるので知っているかも知れませんが、変数とは、数字や文字などを保存しておく箱のようなものです。</p>
 </div>
@@ -1744,7 +1908,7 @@ i = i + <span class="integer">1</span>;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_変数の中身がどうなっているか知りたい時">5.2. 変数の中身がどうなっているか知りたい時</h3>
+<h3 id="_変数の中身がどうなっているか知りたい時">6.2. 変数の中身がどうなっているか知りたい時</h3>
 <div class="paragraph">
 <p>また、Javascriptで変数の中身が何なのかを表示したいときは、 <code>console.log()</code> という関数を使いましょう。例えば変数iの中身を知りたい時は、</p>
 </div>
@@ -1760,7 +1924,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_if文">5.3. if文</h3>
+<h3 id="_if文">6.3. if文</h3>
 <div class="paragraph">
 <p>次はif文について説明します。if文は、ある特定の条件のときだけ処理を実行したいときや、条件を分岐したいときに使います。</p>
 </div>
@@ -1798,7 +1962,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_for文">5.4. for文</h3>
+<h3 id="_for文">6.4. for文</h3>
 <div class="paragraph">
 <p>for文は繰り返す処理をするときに使う構文です。かき方は以下のようになります。</p>
 </div>
@@ -1841,7 +2005,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_配列">5.5. 配列</h3>
+<h3 id="_配列">6.5. 配列</h3>
 <div class="paragraph">
 <p>配列とは、変数が複数集まったもののことです。変数を箱に例えると、箱が複数連なっているのが配列です。Javascriptで配列をかく時は、 <code>let a = [1,2,3,4]</code> のようになります。</p>
 </div>
@@ -1895,7 +2059,7 @@ bulletX10 = bulletX10 + <span class="integer">3</span>;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_関数について">5.6. 関数について</h3>
+<h3 id="_関数について">6.6. 関数について</h3>
 <div class="paragraph">
 <p>関数は、同じ処理をまとめて定義して、使い回せるようにしたものです。</p>
 </div>
@@ -1964,7 +2128,7 @@ console.log(divide(<span class="integer">9</span>, <span class="integer">3</span
 </div>
 </div>
 <div class="sect2">
-<h3 id="_クラスについて">5.7. クラスについて</h3>
+<h3 id="_クラスについて">6.7. クラスについて</h3>
 <div class="paragraph">
 <p>クラスとは、データをひとまとめにしたもの、いわば設計図のようなものです。実例を見せたほうがわかりやすいと思うので、ここではPlayerクラスを作っていきます。</p>
 </div>
@@ -2043,7 +2207,7 @@ console.log(player.y);</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-08 15:43:43 JST
+Last updated 2018-07-09 15:09:05 JST
 </div>
 </div>
 </body>

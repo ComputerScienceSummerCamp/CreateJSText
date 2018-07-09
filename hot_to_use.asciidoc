@@ -417,6 +417,89 @@ include::process/phase19.html[lines=40..85]
 
 `bulletList.splice(i, 1);` は、配列のi番目の要素から1つだけを削除します。ここでは、敵に当たった弾が削除されますね。ちなみに、`bulletList.splice(i, 2);` にすると、配列のi番目の要素とその次の要素の2つの要素が削除されてしまいます。
 
+== キー入力でプレイヤーを操作してみよう
+
+ここまではマウス操作でプレイヤーを動かしましたが、今度はキーボードで操作できるようにしてみましょう。
+
+=== プレイヤーを動かす
+
+まず、init関数の中に以下のものを追加します。
+
+```javascript
+window.addEventListener("keydown", handleKeydown);
+window.addEventListener("keyup", handleKeyUp);
+
+function handleKeydown(event){
+  // キーが押された時の処理
+}
+
+function handleKeyUp(event) {
+  // キーを離した時の処理
+}
+```
+
+ここから以下のように、キーが押された時にtrue、キーを離したときにfalseになる変数をそれぞれ用意して、処理をかきます。
+
+[source, javascript]
+----
+include::key-html/key1.html[lines=32..85]
+----
+
+プログラムが長く見えますが、５回同じようなことをしているだけなので、１個ずつみていきましょう。
+
+まず、handleKeyDown関数内の `let keyCode = event.keyCode;` は、押されたキーが何であるかを取得して（厳密にはキーコードをとってきます）、それをkeyCode変数に格納します。
+
+スペースキーのキーコードは32らしいので、 `const SPACE = 32` で、SPACEという *定数* を作ります。定数というのは、あとから値を変更できないもののことです。これでSPACEという定数を使う限り、スペースキーのキーコードが32であることが保証されるので、何か変更したくない値を作りたいときは定数を使いましょう。
+
+それから、`if (keyCode === SPACE) {}` でキーコードがスペースキーであるかを判定して、もしそうであれば、isSpace変数をtrueにします。こうすることで、スペースキーが押されたという状態を表すことができます。キーを離した場合も同様です。
+
+他のキーについても同様のことが言えます。
+
+あとは、isSpace, isUpなどの変数をどう使うかです。以下のように使います。前の章で
+
+```javascript
+player.x = stage.mouseX;
+player.y = stage.mouseY;
+```
+
+としていたところを、
+
+```javascript
+if(isLeft === true) {
+    player.x -= 3;
+}
+if(isUp === true){
+    player.y -= 3;
+}
+if(isRight === true){
+    player.x += 3;
+}
+if(isDown === true) {
+    player.y += 3;
+}
+```
+
+のようにします。isLeftがtrueなら（左キーが押されているなら）、プレイヤーのx座標を-3します（プレイヤーを左に移動させます）。他の方向でも同じようにすれば、キー入力でプレイヤーを動かすことができます。
+
+=== スペースキーを押して弾を発射させる
+
+スペースキーを押したら、弾を出現させる処理を書けばいいので、さっき書いたコードの下あたりに以下のコードを追加しましょう。
+
+```javascript
+if(isSpace === true) {
+    let bullet = new createjs.Shape();
+    bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+    bullet.x = player.x;
+    bullet.y = player.y;
+
+    bulletList.push(bullet);
+    stage.addChild(bullet);
+}
+```
+
+これは、handleClick関数内で書いた処理をそっくりそのまま書けばOKですね。
+これでプレイヤーから弾をキー入力で発射できるようになったと思います。
+
 == Javascriptの基本
 
 この章では、Javascriptという言語の基本的な構文や使い方について学んでいきます。
