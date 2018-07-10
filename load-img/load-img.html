@@ -4,6 +4,11 @@
     <title>key入力のサンプル</title>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script>
+//        let bulletList = [];
+    </script>
+    <!--<script src="main.js"></script>-->
+    <script>
+
         window.addEventListener("load", init);
 
         function init() {
@@ -19,20 +24,25 @@
 
 //            let player = new createjs.Shape();
             let player = new createjs.Bitmap('../img/touhou50.png');
+            player.crossOrigin="Anonymous";
 //            player.graphics.beginFill("white").drawCircle(0, 0, 10);
 
-//            player.scaleX = 200;
+//            player.scaleX = 0.2;
+            player.scaleX = 60 / player.getBounds().width;
 //            player.scaleY = 2000;
+
+
+            player.x = 20;
+//            player.y = window.innerHeight / 2;
+            player.y = stage.canvas.height / 2;
+//            console.log(stage.canvas.width);
+
             // x,yの位置に画像の中央が表示されるように設定
-//            player.regX = player.getBounds().width / 2;
-//            player.regY = player.getBounds().height / 2;
+            player.regX = player.getBounds().width / 2;
+            player.regY = player.getBounds().height / 2;
 
 
             stage.addChild(player);
-//            bitmap.x = 0;
-//            bitmap.y = 0;
-//            console.log("Bitmap height: " + bitmap.getBounds().width);
-//            stage.addChild(bitmap);
 
 //            stage.addEventListener("click", handleClick);
             window.addEventListener("keydown", handleKeyDown);
@@ -60,6 +70,14 @@
 
                 if (keyCode === SPACE) {
                     isSpace = true;
+                    let bullet = new createjs.Shape();
+                    bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+                    bullet.x = player.x;
+                    bullet.y = player.y;
+
+                    bulletList.push(bullet);
+                    stage.addChild(bullet);
+
                 }
                 else if (keyCode === LEFT) {
                     isLeft = true;
@@ -78,7 +96,7 @@
             function handleKeyUp(event) {
                 let keyCode = event.keyCode;
 
-                console.log(keyCode);
+//                console.log(keyCode);
 
                 if (keyCode === SPACE) {
                     isSpace = false;
@@ -97,11 +115,28 @@
                 }
             }
 
+            let releaseUp = true;
+            let releaseDown = true;
+            function spaceKeyDown() {
+                if(isSpace){
+                    if(releaseUp){
+                        releaseUp = false;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    releaseUp = true;
+                    return false;
+                }
+            }
+
             function handleTick() {
 //                if(isRight) {
 //                    bitmap.x +=　3;
 //                }
 //                console.log("Bounds() " + bitmap.getBounds());
+                console.log(player.getBounds().width);
 
                 if(isLeft === true) {
                     player.x -= 3;
@@ -116,7 +151,8 @@
                     player.y += 3;
                 }
 
-                if(isSpace === true) {
+//                if(isSpace === true) {
+                if(spaceKeyDown() === true) {
                     let bullet = new createjs.Shape();
                     bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
                     bullet.x = player.x;
@@ -146,12 +182,12 @@
                     bulletList[i].x += 10;
                 }
 
-//                for (let i = 0; i < enemyList.length; i++) {
-//                    let enemyLocal = enemyList[i].localToLocal(0, 0, player);
-//                    if (player.hitTest(enemyLocal.x, enemyLocal.y)) {
-//                        gameOver();
-//                    }
-//                }
+                for (let i = 0; i < enemyList.length; i++) {
+                    let enemyLocal = enemyList[i].localToLocal(0, 0, player);
+                    if (player.hitTest(enemyLocal.x, enemyLocal.y)) {
+                        gameOver();
+                    }
+                }
 
                 for (let i = 0; i < bulletList.length; i++) {
                     for (let j = 0; j < enemyList.length; j++) {
@@ -159,6 +195,7 @@
                         if (enemyList[j].hitTest(localPoint.x, localPoint.y)) {
                             stage.removeChild(bulletList[i]);
                             bulletList.splice(i, 1);
+                            console.log(bulletList.length);
 
                             stage.removeChild(enemyList[j]);
                             enemyList.splice(j, 1);
