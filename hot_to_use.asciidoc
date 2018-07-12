@@ -528,6 +528,41 @@ if(isSpace === true) {
 これは、handleClick関数内で書いた処理をそっくりそのまま書けばOKですね。
 これでプレイヤーから弾をキー入力で発射できるようになったと思います。
 
+== 画像を表示してみよう
+
+Shapeだけでは味気ないので、今度は画像を表示させて、それを動かせるようにしましょう。
+
+まず、
+
+```javascript
+let player = new createjs.Shape();
+player.graphics.beginFill("white").drawCircle(0, 0, 10);
+```
+
+としていたところを、以下のように変えます。
+
+```javascript
+let player = new createjs.Bitmap('img/touhou50.png');
+player.crossOrigin="Anonymous";
+```
+
+`let player = new createjs.Bitmap('ファイルの場所');` で画像を読み込みます。２行目はおまじないだと思ってください。（これがないと、当たり判定を使う時などにエラーがおこります）
+
+こうすれば画像が表示させたと思います。なお、当たり判定はプレイヤー画像と敵の中心１点との当たり判定になっています。
+
+image:img/load-img1.png[]
+
+=== 画像の基準点を真ん中にする
+
+スペースキーを押して弾を発射してみると、頭のてっぺんから発射されてますね。これはこれでおもしろいですが、今回は体の中央から弾が発射されるように変えてみましょう。
+
+```javascript
+player.regX = player.getBounds().width / 2;
+player.regY = player.getBounds().height / 2;
+```
+
+`player.getBounds().width` で画像の幅を取得して、 `player.getBounds().height` で画像の高さを取得します。あとはそれらを2で割れば、基準点がちょうど真ん中になります。
+
 == Javascriptの基本
 
 この章では、Javascriptという言語の基本的な構文や使い方について学んでいきます。

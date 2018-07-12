@@ -566,21 +566,26 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_スペースキーを押して弾を発射させる">6.2. スペースキーを押して弾を発射させる</a></li>
 </ul>
 </li>
-<li><a href="#_javascriptの基本">7. Javascriptの基本</a>
+<li><a href="#_画像を表示してみよう">7. 画像を表示してみよう</a>
 <ul class="sectlevel2">
-<li><a href="#_変数について">7.1. 変数について</a></li>
-<li><a href="#_変数の中身がどうなっているか知りたい時">7.2. 変数の中身がどうなっているか知りたい時</a></li>
-<li><a href="#_if文">7.3. if文</a></li>
-<li><a href="#_for文">7.4. for文</a></li>
-<li><a href="#_配列">7.5. 配列</a></li>
-<li><a href="#_関数について">7.6. 関数について</a></li>
-<li><a href="#_クラスについて">7.7. クラスについて</a></li>
+<li><a href="#_画像の基準点を真ん中にする">7.1. 画像の基準点を真ん中にする</a></li>
 </ul>
 </li>
-<li><a href="#_2日目以降のグループワークについて">8. 2日目以降のグループワークについて</a>
+<li><a href="#_javascriptの基本">8. Javascriptの基本</a>
 <ul class="sectlevel2">
-<li><a href="#_ファイルとディレクトリとは">8.1. ファイルとディレクトリとは？</a></li>
-<li><a href="#_グループワークに取り掛かる前の準備">8.2. グループワークに取り掛かる前の準備</a></li>
+<li><a href="#_変数について">8.1. 変数について</a></li>
+<li><a href="#_変数の中身がどうなっているか知りたい時">8.2. 変数の中身がどうなっているか知りたい時</a></li>
+<li><a href="#_if文">8.3. if文</a></li>
+<li><a href="#_for文">8.4. for文</a></li>
+<li><a href="#_配列">8.5. 配列</a></li>
+<li><a href="#_関数について">8.6. 関数について</a></li>
+<li><a href="#_クラスについて">8.7. クラスについて</a></li>
+</ul>
+</li>
+<li><a href="#_2日目以降のグループワークについて">9. 2日目以降のグループワークについて</a>
+<ul class="sectlevel2">
+<li><a href="#_ファイルとディレクトリとは">9.1. ファイルとディレクトリとは？</a></li>
+<li><a href="#_グループワークに取り掛かる前の準備">9.2. グループワークに取り掛かる前の準備</a></li>
 </ul>
 </li>
 </ul>
@@ -1932,13 +1937,63 @@ player.y = stage.mouseY;</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_javascriptの基本">7. Javascriptの基本</h2>
+<h2 id="_画像を表示してみよう">7. 画像を表示してみよう</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Shapeだけでは味気ないので、今度は画像を表示させて、それを動かせるようにしましょう。</p>
+</div>
+<div class="paragraph">
+<p>まず、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">let player = <span class="keyword">new</span> createjs.Shape();
+player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">10</span>);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>としていたところを、以下のように変えます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">let player = <span class="keyword">new</span> createjs.Bitmap(<span class="string"><span class="delimiter">'</span><span class="content">img/touhou50.png</span><span class="delimiter">'</span></span>);
+player.crossOrigin=<span class="string"><span class="delimiter">&quot;</span><span class="content">Anonymous</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>let player = new createjs.Bitmap('ファイルの場所');</code> で画像を読み込みます。２行目はおまじないだと思ってください。（これがないと、当たり判定を使う時などにエラーがおこります）</p>
+</div>
+<div class="paragraph">
+<p>こうすれば画像が表示させたと思います。なお、当たり判定はプレイヤー画像と敵の中心１点との当たり判定になっています。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/load-img1.png" alt="load img1"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_画像の基準点を真ん中にする">7.1. 画像の基準点を真ん中にする</h3>
+<div class="paragraph">
+<p>スペースキーを押して弾を発射してみると、頭のてっぺんから発射されてますね。これはこれでおもしろいですが、今回は体の中央から弾が発射されるように変えてみましょう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">player.regX = player.getBounds().width / <span class="integer">2</span>;
+player.regY = player.getBounds().height / <span class="integer">2</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>player.getBounds().width</code> で画像の幅を取得して、 <code>player.getBounds().height</code> で画像の高さを取得します。あとはそれらを2で割れば、基準点がちょうど真ん中になります。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javascriptの基本">8. Javascriptの基本</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>この章では、Javascriptという言語の基本的な構文や使い方について学んでいきます。</p>
 </div>
 <div class="sect2">
-<h3 id="_変数について">7.1. 変数について</h3>
+<h3 id="_変数について">8.1. 変数について</h3>
 <div class="paragraph">
 <p>みなさんは、「変数」という言葉は聞いたことがあるでしょうか？他のプログラミング言語にも変数はあるので知っているかも知れませんが、変数とは、数字や文字などを保存しておく箱のようなものです。</p>
 </div>
@@ -1982,7 +2037,7 @@ i = i + <span class="integer">1</span>;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_変数の中身がどうなっているか知りたい時">7.2. 変数の中身がどうなっているか知りたい時</h3>
+<h3 id="_変数の中身がどうなっているか知りたい時">8.2. 変数の中身がどうなっているか知りたい時</h3>
 <div class="paragraph">
 <p>また、Javascriptで変数の中身が何なのかを表示したいときは、 <code>console.log()</code> という関数を使いましょう。例えば変数iの中身を知りたい時は、</p>
 </div>
@@ -1998,7 +2053,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_if文">7.3. if文</h3>
+<h3 id="_if文">8.3. if文</h3>
 <div class="paragraph">
 <p>次はif文について説明します。if文は、ある特定の条件のときだけ処理を実行したいときや、条件を分岐したいときに使います。</p>
 </div>
@@ -2036,7 +2091,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_for文">7.4. for文</h3>
+<h3 id="_for文">8.4. for文</h3>
 <div class="paragraph">
 <p>for文は繰り返す処理をするときに使う構文です。かき方は以下のようになります。</p>
 </div>
@@ -2079,7 +2134,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_配列">7.5. 配列</h3>
+<h3 id="_配列">8.5. 配列</h3>
 <div class="paragraph">
 <p>配列とは、変数が複数集まったもののことです。変数を箱に例えると、箱が複数連なっているのが配列です。Javascriptで配列をかく時は、 <code>let a = [1,2,3,4]</code> のようになります。</p>
 </div>
@@ -2133,7 +2188,7 @@ bulletX10 = bulletX10 + <span class="integer">3</span>;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_関数について">7.6. 関数について</h3>
+<h3 id="_関数について">8.6. 関数について</h3>
 <div class="paragraph">
 <p>関数は、同じ処理をまとめて定義して、使い回せるようにしたものです。</p>
 </div>
@@ -2202,7 +2257,7 @@ console.log(divide(<span class="integer">9</span>, <span class="integer">3</span
 </div>
 </div>
 <div class="sect2">
-<h3 id="_クラスについて">7.7. クラスについて</h3>
+<h3 id="_クラスについて">8.7. クラスについて</h3>
 <div class="paragraph">
 <p>クラスとは、データをひとまとめにしたもの、いわば設計図のようなものです。実例を見せたほうがわかりやすいと思うので、ここではPlayerクラスを作っていきます。</p>
 </div>
@@ -2279,7 +2334,7 @@ console.log(player.y);</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2日目以降のグループワークについて">8. 2日目以降のグループワークについて</h2>
+<h2 id="_2日目以降のグループワークについて">9. 2日目以降のグループワークについて</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>昨日のアンケートを元にゲーム制作のグループ分けを行いました。以下の項目を話し合って決めてください。</p>
@@ -2313,7 +2368,7 @@ console.log(player.y);</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_ファイルとディレクトリとは">8.1. ファイルとディレクトリとは？</h3>
+<h3 id="_ファイルとディレクトリとは">9.1. ファイルとディレクトリとは？</h3>
 <div class="paragraph">
 <p>ゲーム制作に際して、HTMLファイルやjsファイル、画像ファイルなどをひとまとめにして作業を行う必要があります。<br>
 このまとまりのことを<strong>ディレクトリ</strong>といい、ディレクトリの構成要素を<strong>ファイル</strong>と言います。また、ファイルやディレクトリのある場所を<strong>パス</strong>と言います。<br>
@@ -2348,7 +2403,7 @@ console.log(player.y);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_グループワークに取り掛かる前の準備">8.2. グループワークに取り掛かる前の準備</h3>
+<h3 id="_グループワークに取り掛かる前の準備">9.2. グループワークに取り掛かる前の準備</h3>
 <div class="paragraph">
 <p><strong>チームリーダー</strong>は以下の名前の通りに新しいプロジェクトを作成してください。</p>
 </div>
@@ -2391,7 +2446,7 @@ g*js**はチームリーダーのアカウント名にしてください。
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-10 13:05:05 JST
+Last updated 2018-07-12 09:38:51 JST
 </div>
 </div>
 </body>

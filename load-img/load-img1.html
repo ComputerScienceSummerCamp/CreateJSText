@@ -4,11 +4,6 @@
     <title>key入力のサンプル</title>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script>
-//        let bulletList = [];
-    </script>
-    <!--<script src="main.js"></script>-->
-    <script>
-
         window.addEventListener("load", init);
 
         function init() {
@@ -16,7 +11,7 @@
             let count = 0;
             let enemyList = [];
             let bulletList = [];
-            let scene = 0;
+//            let scene = 0;
 
             let bg = new createjs.Shape();
             bg.graphics.beginFill("black").drawRect(0, 0, 960, 540);
@@ -25,33 +20,24 @@
 //            let player = new createjs.Shape();
             let player = new createjs.Bitmap('img/touhou50.png');
             player.crossOrigin="Anonymous";
-//            player.graphics.beginFill("white").drawCircle(0, 0, 10);
-
-//            player.scaleX = 0.2;
-            player.scaleX = 60 / player.getBounds().width;
-//            player.scaleY = 2000;
-
-
-            player.x = 20;
-//            player.y = window.innerHeight / 2;
-            player.y = stage.canvas.height / 2;
-//            console.log(stage.canvas.width);
 
             // x,yの位置に画像の中央が表示されるように設定
             player.regX = player.getBounds().width / 2;
             player.regY = player.getBounds().height / 2;
 
-
+//            player.graphics.beginFill("white").drawCircle(0, 0, 10);
             stage.addChild(player);
 
 //            stage.addEventListener("click", handleClick);
-            window.addEventListener("keydown", handleKeyDown);
-            window.addEventListener("keyup", handleKeyUp);
+
 
 //            createjs.Ticker.setFPS(60);
             createjs.Ticker.timingMode = createjs.Ticker.RAF;
             createjs.Ticker.addEventListener("tick", handleTick);
             createjs.Ticker.addEventListener("tick", stage);
+
+            window.addEventListener("keydown", handleKeyDown);
+            window.addEventListener("keyup", handleKeyUp);
 
             const SPACE = 32;
             const LEFT = 37;
@@ -70,14 +56,6 @@
 
                 if (keyCode === SPACE) {
                     isSpace = true;
-                    let bullet = new createjs.Shape();
-                    bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
-                    bullet.x = player.x;
-                    bullet.y = player.y;
-
-                    bulletList.push(bullet);
-                    stage.addChild(bullet);
-
                 }
                 else if (keyCode === LEFT) {
                     isLeft = true;
@@ -96,8 +74,6 @@
             function handleKeyUp(event) {
                 let keyCode = event.keyCode;
 
-//                console.log(keyCode);
-
                 if (keyCode === SPACE) {
                     isSpace = false;
                 }
@@ -115,28 +91,7 @@
                 }
             }
 
-            let releaseUp = true;
-            let releaseDown = true;
-            function spaceKeyDown() {
-                if(isSpace){
-                    if(releaseUp){
-                        releaseUp = false;
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    releaseUp = true;
-                    return false;
-                }
-            }
-
             function handleTick() {
-//                if(isRight) {
-//                    bitmap.x +=　3;
-//                }
-//                console.log("Bounds() " + bitmap.getBounds());
-                console.log(player.getBounds().width);
 
                 if(isLeft === true) {
                     player.x -= 3;
@@ -151,8 +106,7 @@
                     player.y += 3;
                 }
 
-//                if(isSpace === true) {
-                if(spaceKeyDown() === true) {
+                if(isSpace === true) {
                     let bullet = new createjs.Shape();
                     bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
                     bullet.x = player.x;
@@ -195,7 +149,6 @@
                         if (enemyList[j].hitTest(localPoint.x, localPoint.y)) {
                             stage.removeChild(bulletList[i]);
                             bulletList.splice(i, 1);
-                            console.log(bulletList.length);
 
                             stage.removeChild(enemyList[j]);
                             enemyList.splice(j, 1);
