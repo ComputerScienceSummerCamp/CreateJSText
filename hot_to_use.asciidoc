@@ -895,6 +895,52 @@ $ cd Workplace
 
 CAUTION: g*js**はチームリーダーのアカウント名にしてください。
 
+=== ファイル分割について
+
+以下にCreateJSによるゲーム製作におけるファイル分割の例を示します。 +
+ゲームの内容は一番最初のサンプルシューティングゲームをキーボード制御バージョンです。 +
+ここではゲームに必要な機能を以下のファイルに分割しています。
+
+* 土台となるhtmlファイル(`index.html`)
+* ゲームの主要部分を制御するJavascriptファイル(`main.js`)
+* キーボード制御を司るJavascriptファイル(`handlekey.js`)
+* ゲームオーバーのアラートを出力するJavascriptファイル(`GameOver.js`)
+
+それでは見てみましょう。
+
+.index.html
+[source,html]
+----
+include::game/index.html[]
+----
+
+ファイル分割を行う場合、各々のファイルで共通して使用する変数はindex.htmlのbody要素の中の `<script type="text/javascript">` 要素内に `let` を使って宣言しないとなりません。
+そうしないと共通の変数を使用することができません。 +
+また、src属性を用いて3つのjsファイルを宣言しなくてはそのファイルの機能が反映されません。
+
+.main.js
+[source,javascript]
+----
+include::game/main.js[]
+----
+
+CAUTION: jsファイル内で共通の変数を初期化する場合はletをつけてはいけません。
+
+.handlekey.js
+[source,javascript]
+----
+include::game/handlekey.js[]
+----
+
+.GameOver.js
+[source,javascript]
+----
+include::game/GameOver.js[]
+----
+
+ゲームオーバーのアラートを出力する場合は `GameOver();` と記述させれば出力できます。
+
+実際のゲーム製作では機能毎にファイルを分割してメンバー毎に仕事を分担するようにしてください。
 
 //=== タイトルをつける
 // TODO シーンの遷移どうしよう？？
