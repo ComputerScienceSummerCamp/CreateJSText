@@ -782,16 +782,16 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;タイトル！&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<pre class="CodeRay highlight"><code data-lang="html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>タイトル！<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
 
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -812,49 +812,49 @@ table.CodeRay td.code>pre{padding:0}
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;shooting&lt;/title&gt;
-    &lt;script src="https://code.createjs.com/1.0.0/createjs.min.js"&gt;&lt;/script&gt;
-    &lt;script&gt;
-        //createJSの読み込みが終わってから、init関数をよぶ。
-        window.addEventListener("load", init);
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>shooting<span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https://code.createjs.com/1.0.0/createjs.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">        <span class="comment">//createJSの読み込みが終わってから、init関数をよぶ。</span>
+        window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">load</span><span class="delimiter">&quot;</span></span>, init);
 
-        function init() {
-            let stage = new createjs.Stage("myCanvas");
-            let count = 0;
+        <span class="keyword">function</span> <span class="function">init</span>() {
+            let stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
+            let count = <span class="integer">0</span>;
             let enemyList = [];
             let bulletList = [];
-            let scene = 0;
+            let scene = <span class="integer">0</span>;
 
-            let bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0, 0, 960, 540);
+            let bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">960</span>, <span class="integer">540</span>);
             stage.addChild(bg);
 
-            let player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(0, 0, 10);
+            let player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">10</span>);
             stage.addChild(player);
 
-            let titleText = new createjs.Text("Title", "40px sans-serif", "white");
-            titleText.x = 480;
-            titleText.y = 50;
-            titleText.textAlign = "center";
+            let titleText = <span class="keyword">new</span> createjs.Text(<span class="string"><span class="delimiter">&quot;</span><span class="content">Title</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">40px sans-serif</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>);
+            titleText.x = <span class="integer">480</span>;
+            titleText.y = <span class="integer">50</span>;
+            titleText.textAlign = <span class="string"><span class="delimiter">&quot;</span><span class="content">center</span><span class="delimiter">&quot;</span></span>;
             stage.addChild(titleText);
 
-            stage.addEventListener("click", handleClick);
+            stage.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">click</span><span class="delimiter">&quot;</span></span>, handleClick);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleClick() {
-                if (scene === 0) {
-                    scene = 1;
+            <span class="keyword">function</span> <span class="function">handleClick</span>() {
+                <span class="keyword">if</span> (scene === <span class="integer">0</span>) {
+                    scene = <span class="integer">1</span>;
                     stage.removeChild(titleText)
-                } else {
+                } <span class="keyword">else</span> {
 
-                    let bullet = new createjs.Shape();
-                    bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+                    let bullet = <span class="keyword">new</span> createjs.Shape();
+                    bullet.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">3</span>);
                     bullet.x = player.x;
                     bullet.y = player.y;
 
@@ -863,52 +863,52 @@ table.CodeRay td.code>pre{padding:0}
                 }
             }
 
-            function handleTick() {
-                if(scene === 0){
+            <span class="keyword">function</span> <span class="function">handleTick</span>() {
+                <span class="keyword">if</span>(scene === <span class="integer">0</span>){
                     stage.update();
                 }
 
-                if(scene === 1) {
+                <span class="keyword">if</span>(scene === <span class="integer">1</span>) {
 
                     player.x = stage.mouseX;
                     player.y = stage.mouseY;
 
-                    if (count % 100 === 0) {
-                        let enemy = new createjs.Shape();
-                        enemy.graphics.beginFill("red").drawCircle(0, 0, 10);
+                    <span class="keyword">if</span> (count % <span class="integer">100</span> === <span class="integer">0</span>) {
+                        let enemy = <span class="keyword">new</span> createjs.Shape();
+                        enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">10</span>);
 
-                        enemy.x = 960;
-                        enemy.y = 540 * Math.random();
+                        enemy.x = <span class="integer">960</span>;
+                        enemy.y = <span class="integer">540</span> * Math.random();
 
                         stage.addChild(enemy);
                         enemyList.push(enemy);
                     }
-                    count = count + 1;
+                    count = count + <span class="integer">1</span>;
 
-                    for (let i = 0; i &lt; enemyList.length; i++) {
-                        enemyList[i].x -= 2;
+                    <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; enemyList.length; i++) {
+                        enemyList[i].x -= <span class="integer">2</span>;
                     }
 
-                    for (let i = 0; i &lt; bulletList.length; i++) {
-                        bulletList[i].x += 10;
+                    <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; bulletList.length; i++) {
+                        bulletList[i].x += <span class="integer">10</span>;
                     }
 
-                    for (let i = 0; i &lt; enemyList.length; i++) {
-                        let enemyLocal = enemyList[i].localToLocal(0, 0, player);
-                        if (player.hitTest(enemyLocal.x, enemyLocal.y)) {
+                    <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; enemyList.length; i++) {
+                        let enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>, <span class="integer">0</span>, player);
+                        <span class="keyword">if</span> (player.hitTest(enemyLocal.x, enemyLocal.y)) {
                             gameOver();
                         }
                     }
 
-                    for (let i = 0; i &lt; bulletList.length; i++) {
-                        for (let j = 0; j &lt; enemyList.length; j++) {
-                            let localPoint = bulletList[i].localToLocal(0, 0, enemyList[j]);
-                            if (enemyList[j].hitTest(localPoint.x, localPoint.y)) {
+                    <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; bulletList.length; i++) {
+                        <span class="keyword">for</span> (let j = <span class="integer">0</span>; j &lt; enemyList.length; j++) {
+                            let localPoint = bulletList[i].localToLocal(<span class="integer">0</span>, <span class="integer">0</span>, enemyList[j]);
+                            <span class="keyword">if</span> (enemyList[j].hitTest(localPoint.x, localPoint.y)) {
                                 stage.removeChild(bulletList[i]);
-                                bulletList.splice(i, 1);
+                                bulletList.splice(i, <span class="integer">1</span>);
 
                                 stage.removeChild(enemyList[j]);
-                                enemyList.splice(j, 1);
+                                enemyList.splice(j, <span class="integer">1</span>);
                             }
                         }
                     }
@@ -917,30 +917,30 @@ table.CodeRay td.code>pre{padding:0}
                 }
             }
 
-//            function title() {
-//                let titleText = new createjs.Text("", "24px sans-serif", "white");
-//                stage.addChild(titleText);
-//            }
-//
-//            function titleClick() {
-//                scene = 1;
-//            }
+<span class="comment">//            function title() {</span>
+<span class="comment">//                let titleText = new createjs.Text(&quot;&quot;, &quot;24px sans-serif&quot;, &quot;white&quot;);</span>
+<span class="comment">//                stage.addChild(titleText);</span>
+<span class="comment">//            }</span>
+<span class="comment">//</span>
+<span class="comment">//            function titleClick() {</span>
+<span class="comment">//                scene = 1;</span>
+<span class="comment">//            }</span>
 
-            function gameOver() {
-                alert("ゲームオーバー");
+            <span class="keyword">function</span> <span class="function">gameOver</span>() {
+                alert(<span class="string"><span class="delimiter">&quot;</span><span class="content">ゲームオーバー</span><span class="delimiter">&quot;</span></span>);
 
                 createjs.Ticker.removeAllEventListeners();
                 stage.removeAllEventListeners();
             }
-        }
+        }</span>
 
 
-    &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;canvas id="myCanvas" width="960" height="540"&gt;&lt;/canvas&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">960</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">540</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -967,16 +967,16 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;shooting&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<pre class="CodeRay highlight"><code data-lang="html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>shooting<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
 
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -990,16 +990,16 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;shooting&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;canvas id="myCanvas" width="960" height="540"&gt;&lt;/canvas&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>shooting<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">960</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">540</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1019,17 +1019,17 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;shooting&lt;/title&gt;
-    &lt;script src="https://code.createjs.com/1.0.0/createjs.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;canvas id="myCanvas" width="960" height="540"&gt;&lt;/canvas&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>shooting<span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https://code.createjs.com/1.0.0/createjs.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">960</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">540</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1040,25 +1040,25 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;shooting&lt;/title&gt;
-    &lt;script src="https://code.createjs.com/1.0.0/createjs.min.js"&gt;&lt;/script&gt;
-    &lt;script&gt;
-        //createJSの読み込みが終わってから、init関数をよぶ。
-        window.addEventListener("load", init);
+<pre class="CodeRay highlight"><code data-lang="html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>shooting<span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https://code.createjs.com/1.0.0/createjs.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">        <span class="comment">//createJSの読み込みが終わってから、init関数をよぶ。</span>
+        window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">load</span><span class="delimiter">&quot;</span></span>, init);
 
-        function init() {
+        <span class="keyword">function</span> <span class="function">init</span>() {
 
-        }
-    &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;canvas id="myCanvas" width="960" height="540"&gt;&lt;/canvas&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+        }</span>
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">960</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">540</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1075,8 +1075,8 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = createjs.Stage("myCanvas");
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
         }</code></pre>
 </div>
 </div>
@@ -1094,11 +1094,11 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
             stage.update()
@@ -1131,15 +1131,15 @@ table.CodeRay td.code>pre{padding:0}
 <h3 id="_プレイヤーの表示">5.3. プレイヤーの表示</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(100,100,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">100</span>,<span class="integer">100</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
             stage.update()
@@ -1168,21 +1168,21 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(100,100,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">100</span>,<span class="integer">100</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleTick(){
+            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 stage.update()
             }
         }</code></pre>
@@ -1199,21 +1199,21 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(100,100,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">100</span>,<span class="integer">100</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleTick(){
+            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
@@ -1237,21 +1237,21 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(0,0,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleTick(){
+            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
@@ -1282,29 +1282,29 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
-            var count = 0;
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">var</span> count = <span class="integer">0</span>;
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(0,0,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleTick(){
+            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
 
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
 
                 stage.update()
@@ -1332,20 +1332,20 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick(){
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
 
                 stage.update()
@@ -1366,37 +1366,37 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
-            var count = 0;
-            var enemyList = [];
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">var</span> count = <span class="integer">0</span>;
+            <span class="keyword">var</span> enemyList = [];
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(0,0,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleTick(){
+            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
                 stage.update()
             }
@@ -1414,24 +1414,24 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick(){
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    enemyList[i].x -= 2;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    enemyList[i].x -= <span class="integer">2</span>;
                 }
 
                 stage.update()
@@ -1455,29 +1455,29 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick(){
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    enemyList[i].x -= 2;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    enemyList[i].x -= <span class="integer">2</span>;
                 }
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    var enemyLocal = enemyList[i].localToLocal(0,0, player);
-                    if(enemyList[i].hitTest(player.x, player.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    <span class="keyword">var</span> enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>, player);
+                    <span class="keyword">if</span>(enemyList[i].hitTest(player.x, player.y)){
 
                     }
                 }
@@ -1500,29 +1500,29 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick(){
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>(){
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    enemyList[i].x -= 2;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    enemyList[i].x -= <span class="integer">2</span>;
                 }
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    var enemyLocal = enemyList[i].localToLocal(0,0, player);
-                    if(player.hitTest(enemyLocal.x, enemyLocal.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    <span class="keyword">var</span> enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>, player);
+                    <span class="keyword">if</span>(player.hitTest(enemyLocal.x, enemyLocal.y)){
                         gameOver();
                     }
                 }
@@ -1530,8 +1530,8 @@ table.CodeRay td.code>pre{padding:0}
                 stage.update()
             }
 
-            function gameOver(){
-                alert("ゲームオーバー");
+            <span class="keyword">function</span> <span class="function">gameOver</span>(){
+                alert(<span class="string"><span class="delimiter">&quot;</span><span class="content">ゲームオーバー</span><span class="delimiter">&quot;</span></span>);
 
                 createjs.Ticker.removeAllEventListeners();
                 stage.removeAllEventListeners();
@@ -1559,25 +1559,25 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
-            var count = 0;
-            var enemyList = [];
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">var</span> count = <span class="integer">0</span>;
+            <span class="keyword">var</span> enemyList = [];
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(0,0,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            stage.addEventListener("click", handleClick);
+            stage.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">click</span><span class="delimiter">&quot;</span></span>, handleClick);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleClick() {
+            <span class="keyword">function</span> <span class="function">handleClick</span>() {
 
             }</code></pre>
 </div>
@@ -1593,28 +1593,28 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">        function init() {
-            var stage = new createjs.Stage("myCanvas");
-            var count = 0;
-            var enemyList = [];
-            var bulletList = [];
+<pre class="CodeRay highlight"><code data-lang="javascript">        <span class="keyword">function</span> <span class="function">init</span>() {
+            <span class="keyword">var</span> stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
+            <span class="keyword">var</span> count = <span class="integer">0</span>;
+            <span class="keyword">var</span> enemyList = [];
+            <span class="keyword">var</span> bulletList = [];
 
-            var bg = new createjs.Shape();
-            bg.graphics.beginFill("black").drawRect(0,0,960,540);
+            <span class="keyword">var</span> bg = <span class="keyword">new</span> createjs.Shape();
+            bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>).drawRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">960</span>,<span class="integer">540</span>);
             stage.addChild(bg);
 
-            var player = new createjs.Shape();
-            player.graphics.beginFill("white").drawCircle(0,0,10);
+            <span class="keyword">var</span> player = <span class="keyword">new</span> createjs.Shape();
+            player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
             stage.addChild(player);
 
-            stage.addEventListener("click", handleClick);
+            stage.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">click</span><span class="delimiter">&quot;</span></span>, handleClick);
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", handleTick);
+            createjs.Ticker.setFPS(<span class="integer">60</span>);
+            createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-            function handleClick() {
-                var bullet = new createjs.Shape();
-                bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+            <span class="keyword">function</span> <span class="function">handleClick</span>() {
+                <span class="keyword">var</span> bullet = <span class="keyword">new</span> createjs.Shape();
+                bullet.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">3</span>);
                 bullet.x = player.x;
                 bullet.y = player.y;
 
@@ -1634,33 +1634,33 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick() {
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>() {
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    enemyList[i].x -= 2;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    enemyList[i].x -= <span class="integer">2</span>;
                 }
 
-                for(var i = 0; i &lt; bulletList.length; i++){
-                    bulletList[i].x += 10;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; bulletList.length; i++){
+                    bulletList[i].x += <span class="integer">10</span>;
                 }
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    var enemyLocal = enemyList[i].localToLocal(0,0,player);
-                    if(player.hitTest(enemyLocal.x, enemyLocal.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    <span class="keyword">var</span> enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>,player);
+                    <span class="keyword">if</span>(player.hitTest(enemyLocal.x, enemyLocal.y)){
                         gameOver();
                     }
                 }
@@ -1677,41 +1677,41 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick() {
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>() {
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    enemyList[i].x -= 2;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    enemyList[i].x -= <span class="integer">2</span>;
                 }
 
-                for(var i = 0; i &lt; bulletList.length; i++){
-                    bulletList[i].x += 10;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; bulletList.length; i++){
+                    bulletList[i].x += <span class="integer">10</span>;
                 }
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    var enemyLocal = enemyList[i].localToLocal(0,0, player);
-                    if(player.hitTest(enemyLocal.x, enemyLocal.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    <span class="keyword">var</span> enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>, player);
+                    <span class="keyword">if</span>(player.hitTest(enemyLocal.x, enemyLocal.y)){
                         gameOver();
                     }
                 }
 
-                for(var i = 0; i &lt; bulletList.length; i++){
-                    for(var j = 0; j &lt; enemyList.length; j++){
-                        var localPoint = bulletList[i].localToLocal(0,0,enemyList[j]);
-                        if(enemyList[j].hitTest(localPoint.x, localPoint.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; bulletList.length; i++){
+                    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="integer">0</span>; j &lt; enemyList.length; j++){
+                        <span class="keyword">var</span> localPoint = bulletList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>,enemyList[j]);
+                        <span class="keyword">if</span>(enemyList[j].hitTest(localPoint.x, localPoint.y)){
 
                         }
                     }
@@ -1729,46 +1729,46 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            function handleTick() {
+<pre class="CodeRay highlight"><code data-lang="javascript">            <span class="keyword">function</span> <span class="function">handleTick</span>() {
                 player.x = stage.mouseX;
                 player.y = stage.mouseY;
 
-                if(count % 100 === 0){
-                    var enemy = new createjs.Shape();
-                    enemy.graphics.beginFill("red").drawCircle(0,0,10);
+                <span class="keyword">if</span>(count % <span class="integer">100</span> === <span class="integer">0</span>){
+                    <span class="keyword">var</span> enemy = <span class="keyword">new</span> createjs.Shape();
+                    enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>,<span class="integer">0</span>,<span class="integer">10</span>);
 
-                    enemy.x = 960;
-                    enemy.y = 540 * Math.random();
+                    enemy.x = <span class="integer">960</span>;
+                    enemy.y = <span class="integer">540</span> * Math.random();
 
                     stage.addChild(enemy);
                     enemyList.push(enemy);
                 }
-                count = count + 1;
+                count = count + <span class="integer">1</span>;
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    enemyList[i].x -= 2;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    enemyList[i].x -= <span class="integer">2</span>;
                 }
 
-                for(var i = 0; i &lt; bulletList.length; i++){
-                    bulletList[i].x += 10;
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; bulletList.length; i++){
+                    bulletList[i].x += <span class="integer">10</span>;
                 }
 
-                for(var i = 0; i &lt; enemyList.length; i++){
-                    var enemyLocal = enemyList[i].localToLocal(0,0, player);
-                    if(player.hitTest(enemyLocal.x, enemyLocal.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; enemyList.length; i++){
+                    <span class="keyword">var</span> enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>, player);
+                    <span class="keyword">if</span>(player.hitTest(enemyLocal.x, enemyLocal.y)){
                         gameOver();
                     }
                 }
 
-                for(var i = 0; i &lt; bulletList.length; i++){
-                    for(var j = 0; j &lt; enemyList.length; j++){
-                        var localPoint = bulletList[i].localToLocal(0,0,enemyList[j]);
-                        if(enemyList[j].hitTest(localPoint.x, localPoint.y)){
+                <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; bulletList.length; i++){
+                    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="integer">0</span>; j &lt; enemyList.length; j++){
+                        <span class="keyword">var</span> localPoint = bulletList[i].localToLocal(<span class="integer">0</span>,<span class="integer">0</span>,enemyList[j]);
+                        <span class="keyword">if</span>(enemyList[j].hitTest(localPoint.x, localPoint.y)){
                             stage.removeChild(bulletList[i]);
-                            bulletList.splice(i, 1);
+                            bulletList.splice(i, <span class="integer">1</span>);
 
                             stage.removeChild(enemyList[j]);
-                            enemyList.splice(j, 1);
+                            enemyList.splice(j, <span class="integer">1</span>);
                         }
                     }
                 }
@@ -1797,15 +1797,15 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener("keydown", handleKeydown);
-window.addEventListener("keyup", handleKeyUp);
+<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keydown</span><span class="delimiter">&quot;</span></span>, handleKeydown);
+window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keyup</span><span class="delimiter">&quot;</span></span>, handleKeyUp);
 
-function handleKeydown(event){
-  // キーが押された時の処理
+<span class="keyword">function</span> <span class="function">handleKeydown</span>(event){
+  <span class="comment">// キーが押された時の処理</span>
 }
 
-function handleKeyUp(event) {
-  // キーを離した時の処理
+<span class="keyword">function</span> <span class="function">handleKeyUp</span>(event) {
+  <span class="comment">// キーを離した時の処理</span>
 }</code></pre>
 </div>
 </div>
@@ -1814,58 +1814,58 @@ function handleKeyUp(event) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">            window.addEventListener("keydown", handleKeyDown);
-            window.addEventListener("keyup", handleKeyUp);
+<pre class="CodeRay highlight"><code data-lang="javascript">            window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keydown</span><span class="delimiter">&quot;</span></span>, handleKeyDown);
+            window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keyup</span><span class="delimiter">&quot;</span></span>, handleKeyUp);
 
-            const SPACE = 32;
-            const LEFT = 37;
-            const UP = 38;
-            const RIGHT = 39;
-            const DOWN = 40;
+            const SPACE = <span class="integer">32</span>;
+            const LEFT = <span class="integer">37</span>;
+            const UP = <span class="integer">38</span>;
+            const RIGHT = <span class="integer">39</span>;
+            const DOWN = <span class="integer">40</span>;
 
-            let isSpace = false;
-            let isLeft = false;
-            let isUp = false;
-            let isRight = false;
-            let isDown = false;
+            let isSpace = <span class="predefined-constant">false</span>;
+            let isLeft = <span class="predefined-constant">false</span>;
+            let isUp = <span class="predefined-constant">false</span>;
+            let isRight = <span class="predefined-constant">false</span>;
+            let isDown = <span class="predefined-constant">false</span>;
 
-            function handleKeyDown(event) {
+            <span class="keyword">function</span> <span class="function">handleKeyDown</span>(event) {
                 let keyCode = event.keyCode;
 
-                if (keyCode === SPACE) {
-                    isSpace = true;
+                <span class="keyword">if</span> (keyCode === SPACE) {
+                    isSpace = <span class="predefined-constant">true</span>;
                 }
-                else if (keyCode === LEFT) {
-                    isLeft = true;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === LEFT) {
+                    isLeft = <span class="predefined-constant">true</span>;
                 }
-                else if (keyCode === UP) {
-                    isUp = true;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === UP) {
+                    isUp = <span class="predefined-constant">true</span>;
                 }
-                else if (keyCode === RIGHT) {
-                    isRight = true;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === RIGHT) {
+                    isRight = <span class="predefined-constant">true</span>;
                 }
-                else if (keyCode === DOWN) {
-                    isDown = true;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === DOWN) {
+                    isDown = <span class="predefined-constant">true</span>;
                 }
             }
 
-            function handleKeyUp(event) {
+            <span class="keyword">function</span> <span class="function">handleKeyUp</span>(event) {
                 let keyCode = event.keyCode;
 
-                if (keyCode === SPACE) {
-                    isSpace = false;
+                <span class="keyword">if</span> (keyCode === SPACE) {
+                    isSpace = <span class="predefined-constant">false</span>;
                 }
-                else if (keyCode === LEFT) {
-                    isLeft = false;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === LEFT) {
+                    isLeft = <span class="predefined-constant">false</span>;
                 }
-                else if (keyCode === UP) {
-                    isUp = false;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === UP) {
+                    isUp = <span class="predefined-constant">false</span>;
                 }
-                else if (keyCode === RIGHT) {
-                    isRight = false;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === RIGHT) {
+                    isRight = <span class="predefined-constant">false</span>;
                 }
-                else if (keyCode === DOWN) {
-                    isDown = false;
+                <span class="keyword">else</span> <span class="keyword">if</span> (keyCode === DOWN) {
+                    isDown = <span class="predefined-constant">false</span>;
                 }
             }</code></pre>
 </div>
@@ -1899,17 +1899,17 @@ player.y = stage.mouseY;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">if(isLeft === true) {
-    player.x -= 3;
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">if</span>(isLeft === <span class="predefined-constant">true</span>) {
+    player.x -= <span class="integer">3</span>;
 }
-if(isUp === true){
-    player.y -= 3;
+<span class="keyword">if</span>(isUp === <span class="predefined-constant">true</span>){
+    player.y -= <span class="integer">3</span>;
 }
-if(isRight === true){
-    player.x += 3;
+<span class="keyword">if</span>(isRight === <span class="predefined-constant">true</span>){
+    player.x += <span class="integer">3</span>;
 }
-if(isDown === true) {
-    player.y += 3;
+<span class="keyword">if</span>(isDown === <span class="predefined-constant">true</span>) {
+    player.y += <span class="integer">3</span>;
 }</code></pre>
 </div>
 </div>
@@ -1924,9 +1924,9 @@ if(isDown === true) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">if(isSpace === true) {
-    let bullet = new createjs.Shape();
-    bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">if</span>(isSpace === <span class="predefined-constant">true</span>) {
+    let bullet = <span class="keyword">new</span> createjs.Shape();
+    bullet.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">3</span>);
     bullet.x = player.x;
     bullet.y = player.y;
 
@@ -1953,8 +1953,8 @@ if(isDown === true) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let player = new createjs.Shape();
-player.graphics.beginFill("white").drawCircle(0, 0, 10);</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">let player = <span class="keyword">new</span> createjs.Shape();
+player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">10</span>);</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1962,8 +1962,8 @@ player.graphics.beginFill("white").drawCircle(0, 0, 10);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let player = new createjs.Bitmap('img/touhou50.png');
-player.crossOrigin="Anonymous";</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">let player = <span class="keyword">new</span> createjs.Bitmap(<span class="string"><span class="delimiter">'</span><span class="content">img/touhou50.png</span><span class="delimiter">'</span></span>);
+player.crossOrigin=<span class="string"><span class="delimiter">&quot;</span><span class="content">Anonymous</span><span class="delimiter">&quot;</span></span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1982,8 +1982,8 @@ player.crossOrigin="Anonymous";</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">player.regX = player.getBounds().width / 2;
-player.regY = player.getBounds().height / 2;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">player.regX = player.getBounds().width / <span class="integer">2</span>;
+player.regY = player.getBounds().height / <span class="integer">2</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2008,7 +2008,7 @@ player.regY = player.getBounds().height / 2;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let i = 1;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">let i = <span class="integer">1</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2022,8 +2022,8 @@ player.regY = player.getBounds().height / 2;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let i = 1;
-i = 3;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">let i = <span class="integer">1</span>;
+i = <span class="integer">3</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2034,8 +2034,8 @@ i = 3;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let i = 1;
-i = i + 1;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">let i = <span class="integer">1</span>;
+i = i + <span class="integer">1</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2049,8 +2049,8 @@ i = i + 1;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let i = 1;
-i = i + 1;
+<pre class="CodeRay highlight"><code data-lang="javascript">let i = <span class="integer">1</span>;
+i = i + <span class="integer">1</span>;
 console.log(i);</code></pre>
 </div>
 </div>
@@ -2065,11 +2065,11 @@ console.log(i);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">if(条件文){
-    条件が正しい時に実行;
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">if</span>(<span class="error">条</span><span class="error">件</span><span class="error">文</span>){
+    <span class="error">条</span><span class="error">件</span><span class="error">が</span><span class="error">正</span><span class="error">し</span><span class="error">い</span><span class="error">時</span><span class="error">に</span><span class="error">実</span><span class="error">行</span>;
 }
-else {
-    条件が正しくない時;
+<span class="keyword">else</span> {
+    <span class="error">条</span><span class="error">件</span><span class="error">が</span><span class="error">正</span><span class="error">し</span><span class="error">く</span><span class="error">な</span><span class="error">い</span><span class="error">時</span>;
 }</code></pre>
 </div>
 </div>
@@ -2078,11 +2078,11 @@ else {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">if(0 &lt;= playerX &amp;&amp; playerX &lt;= 500) {
-    console.log("画面内です");
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">if</span>(<span class="integer">0</span> &lt;= playerX &amp;&amp; playerX &lt;= <span class="integer">500</span>) {
+    console.log(<span class="string"><span class="delimiter">&quot;</span><span class="content">画面内です</span><span class="delimiter">&quot;</span></span>);
 }
-else {
-    console.log("画面外です");
+<span class="keyword">else</span> {
+    console.log(<span class="string"><span class="delimiter">&quot;</span><span class="content">画面外です</span><span class="delimiter">&quot;</span></span>);
 }</code></pre>
 </div>
 </div>
@@ -2103,8 +2103,8 @@ else {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">for(初期値; 実行し続ける条件; 増加（減少）分){
-    繰り返す処理;
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">for</span>(<span class="error">初</span><span class="error">期</span><span class="error">値</span>; <span class="error">実</span><span class="error">行</span><span class="error">し</span><span class="error">続</span><span class="error">け</span><span class="error">る</span><span class="error">条</span><span class="error">件</span>; <span class="error">増</span><span class="error">加</span><span class="error">（</span><span class="error">減</span><span class="error">少</span><span class="error">）</span><span class="error">分</span>){
+    <span class="error">繰</span><span class="error">り</span><span class="error">返</span><span class="error">す</span><span class="error">処</span><span class="error">理</span>;
 }</code></pre>
 </div>
 </div>
@@ -2113,7 +2113,7 @@ else {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">for(let i = 0; i &lt; 10; i++){
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">for</span>(let i = <span class="integer">0</span>; i &lt; <span class="integer">10</span>; i++){
     console.log(i);
 }</code></pre>
 </div>
@@ -2126,16 +2126,16 @@ else {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">0
-1
-2
-3
-4
-5
-6
-7
-8
-9</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="integer">0</span>
+<span class="integer">1</span>
+<span class="integer">2</span>
+<span class="integer">3</span>
+<span class="integer">4</span>
+<span class="integer">5</span>
+<span class="integer">6</span>
+<span class="integer">7</span>
+<span class="integer">8</span>
+<span class="integer">9</span></code></pre>
 </div>
 </div>
 </div>
@@ -2149,21 +2149,21 @@ else {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let bulletX1 = 10;
-let bulletX2 = 5;
-let bulletX3 = 13;
-let bulletX4 = 19;
-let bulletX5 = 2;
-let bulletX6 = 20;
-let bulletX7 = 14;
-let bulletX8 = 0;
-let bulletX9 = 4;
-let bulletX10 = 21;
+<pre class="CodeRay highlight"><code data-lang="javascript">let bulletX1 = <span class="integer">10</span>;
+let bulletX2 = <span class="integer">5</span>;
+let bulletX3 = <span class="integer">13</span>;
+let bulletX4 = <span class="integer">19</span>;
+let bulletX5 = <span class="integer">2</span>;
+let bulletX6 = <span class="integer">20</span>;
+let bulletX7 = <span class="integer">14</span>;
+let bulletX8 = <span class="integer">0</span>;
+let bulletX9 = <span class="integer">4</span>;
+let bulletX10 = <span class="integer">21</span>;
 
-bulletX1 = bulletX1 + 3;
-bulletX2 = bulletX2 + 3;
-// ...途中省略
-bulletX10 = bulletX10 + 3;</code></pre>
+bulletX1 = bulletX1 + <span class="integer">3</span>;
+bulletX2 = bulletX2 + <span class="integer">3</span>;
+<span class="comment">// ...途中省略</span>
+bulletX10 = bulletX10 + <span class="integer">3</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2174,9 +2174,9 @@ bulletX10 = bulletX10 + 3;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">let bullets = [10, 5, 13, 19, 2, 20, 14, 0, 4, 21];
-for(let i = 0; i &lt; bullets.length; i++) {
-    bullets[i] += 3;
+<pre class="CodeRay highlight"><code data-lang="javascript">let bullets = [<span class="integer">10</span>, <span class="integer">5</span>, <span class="integer">13</span>, <span class="integer">19</span>, <span class="integer">2</span>, <span class="integer">20</span>, <span class="integer">14</span>, <span class="integer">0</span>, <span class="integer">4</span>, <span class="integer">21</span>];
+<span class="keyword">for</span>(let i = <span class="integer">0</span>; i &lt; bullets.length; i++) {
+    bullets[i] += <span class="integer">3</span>;
 }</code></pre>
 </div>
 </div>
@@ -2234,28 +2234,28 @@ for(let i = 0; i &lt; bullets.length; i++) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">&lt;script&gt;
-function add(x, y) {
-    return x + y;
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="tag">&lt;script&gt;</span>
+<span class="inline"><span class="keyword">function</span> <span class="function">add</span>(x, y) {
+    <span class="keyword">return</span> x + y;
 }
 
-function minus(x, y) {
-    return x - y;
+<span class="keyword">function</span> <span class="function">minus</span>(x, y) {
+    <span class="keyword">return</span> x - y;
 }
 
-function multiply(x, y) {
-    return x * y;
+<span class="keyword">function</span> <span class="function">multiply</span>(x, y) {
+    <span class="keyword">return</span> x * y;
 }
 
-function divide(x, y) {
-    return x / y;
+<span class="keyword">function</span> <span class="function">divide</span>(x, y) {
+    <span class="keyword">return</span> x / y;
 }
 
-console.log(add(1, 3));
-console.log(minus(5, 3));
-console.log(multiply(4, 5));
-console.log(divide(9, 3));
-&lt;/script&gt;</code></pre>
+console.log(add(<span class="integer">1</span>, <span class="integer">3</span>));
+console.log(minus(<span class="integer">5</span>, <span class="integer">3</span>));
+console.log(multiply(<span class="integer">4</span>, <span class="integer">5</span>));
+console.log(divide(<span class="integer">9</span>, <span class="integer">3</span>));</span>
+<span class="tag">&lt;/script&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2275,11 +2275,11 @@ console.log(divide(9, 3));
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">class Player {
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="reserved">class</span> Player {
     constructor(x, y, img){
-        this.x = x;
-        this.y = y;
-        this.img = img;
+        <span class="local-variable">this</span>.x = x;
+        <span class="local-variable">this</span>.y = y;
+        <span class="local-variable">this</span>.img = img;
     }
 }</code></pre>
 </div>
@@ -2289,7 +2289,7 @@ console.log(divide(9, 3));
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">var player = new Player(0,0,"player.png");</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> player = <span class="keyword">new</span> Player(<span class="integer">0</span>,<span class="integer">0</span>,<span class="string"><span class="delimiter">&quot;</span><span class="content">player.png</span><span class="delimiter">&quot;</span></span>);</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2312,15 +2312,15 @@ console.log(player.y);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">class Player {
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="reserved">class</span> Player {
     constructor(x, y, img){
-        this.x = x;
-        this.y = y;
-        this.img = img;
+        <span class="local-variable">this</span>.x = x;
+        <span class="local-variable">this</span>.y = y;
+        <span class="local-variable">this</span>.img = img;
     }
 
     moveUp(){
-        this.y -= 3; // thisをつける
+        <span class="local-variable">this</span>.y -= <span class="integer">3</span>; <span class="comment">// thisをつける</span>
     }
 }</code></pre>
 </div>
@@ -2476,18 +2476,18 @@ g*js**はチームリーダーのアカウント名にしてください。
 <div class="listingblock">
 <div class="title">index.html</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Shooting game&lt;/title&gt;
-    &lt;script src="https://code.createjs.com/1.0.0/createjs.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;canvas id="myCanvas" width="960" height="540"&gt;&lt;/canvas&gt;
+<pre class="CodeRay highlight"><code data-lang="html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute-name">lang</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Shooting game<span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https://code.createjs.com/1.0.0/createjs.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">960</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">540</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
 
-&lt;script type="text/javascript"&gt;
-    let stage;
+<span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="inline">    let stage;
     let scene;
     let count;
     let enemylist;
@@ -2496,20 +2496,20 @@ g*js**はチームリーダーのアカウント名にしてください。
     let howToText;
     let pressSpaceText;
     let player;
-    let isPressLeft  = false;
-    let isPressRight = false;
-    let isPressUp    = false;
-    let isPressDown  = false;
-    let GameOver;
+    let isPressLeft  = <span class="predefined-constant">false</span>;
+    let isPressRight = <span class="predefined-constant">false</span>;
+    let isPressUp    = <span class="predefined-constant">false</span>;
+    let isPressDown  = <span class="predefined-constant">false</span>;
+    let GameOver;</span>
 
-&lt;/script&gt;
+<span class="tag">&lt;/script&gt;</span>
 
-&lt;script src="main.js"&gt;&lt;/script&gt;
-&lt;script src="handlekey.js"&gt;&lt;/script&gt;
-&lt;script src="GameOver.js"&gt;&lt;/script&gt;
+<span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">main.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">handlekey.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">GameOver.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
 
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2520,107 +2520,107 @@ g*js**はチームリーダーのアカウント名にしてください。
 <div class="listingblock">
 <div class="title">main.js</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener("load", init);
+<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">load</span><span class="delimiter">&quot;</span></span>, init);
 
-function init() {
-     stage = new createjs.Stage("myCanvas");
-     count = 0; /// Tickイベントのカウント
+<span class="keyword">function</span> <span class="function">init</span>() {
+     stage = <span class="keyword">new</span> createjs.Stage(<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span>);
+     count = <span class="integer">0</span>; <span class="comment">/// Tickイベントのカウント</span>
      enemyList = [];
      bulletList = [];
-     scene = 0;
+     scene = <span class="integer">0</span>;
 
-    // 背景
-    let bg = new createjs.Shape();
-    bg.graphics.beginFill("black")
-        .drawRect(0, 0, 960, 540);
+    <span class="comment">// 背景</span>
+    let bg = <span class="keyword">new</span> createjs.Shape();
+    bg.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">black</span><span class="delimiter">&quot;</span></span>)
+        .drawRect(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">960</span>, <span class="integer">540</span>);
     stage.addChild(bg);
 
-    // 自機
-    player = new createjs.Shape();
-    player.graphics.beginFill("white")
-        .moveTo(5, 0)
-        .lineTo(-10, 5)
-        .lineTo(-10, -5)
+    <span class="comment">// 自機</span>
+    player = <span class="keyword">new</span> createjs.Shape();
+    player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>)
+        .moveTo(<span class="integer">5</span>, <span class="integer">0</span>)
+        .lineTo(-<span class="integer">10</span>, <span class="integer">5</span>)
+        .lineTo(-<span class="integer">10</span>, -<span class="integer">5</span>)
         .closePath();
-    player.x = 480;
-    player.y = 270;
+    player.x = <span class="integer">480</span>;
+    player.y = <span class="integer">270</span>;
 
-    // タイトル画面
-    titleText = new createjs.Text("Shooting Game", "40px sans-serif", "white");
-    titleText.x = 480;
-    titleText.y = 50;
-    titleText.textAlign = "center";
+    <span class="comment">// タイトル画面</span>
+    titleText = <span class="keyword">new</span> createjs.Text(<span class="string"><span class="delimiter">&quot;</span><span class="content">Shooting Game</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">40px sans-serif</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>);
+    titleText.x = <span class="integer">480</span>;
+    titleText.y = <span class="integer">50</span>;
+    titleText.textAlign = <span class="string"><span class="delimiter">&quot;</span><span class="content">center</span><span class="delimiter">&quot;</span></span>;
     stage.addChild(titleText);
 
-    howToText = new createjs.Text("操作方法:自機を動かす(十字キー)、弾を撃つ(スペースキー)", "20px sans-serif", "white");
-    howToText.x = 480;
-    howToText.y = 100;
-    howToText.textAlign = "center";
+    howToText = <span class="keyword">new</span> createjs.Text(<span class="string"><span class="delimiter">&quot;</span><span class="content">操作方法:自機を動かす(十字キー)、弾を撃つ(スペースキー)</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">20px sans-serif</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>);
+    howToText.x = <span class="integer">480</span>;
+    howToText.y = <span class="integer">100</span>;
+    howToText.textAlign = <span class="string"><span class="delimiter">&quot;</span><span class="content">center</span><span class="delimiter">&quot;</span></span>;
     stage.addChild(howToText);
 
-    pressSpaceText = new createjs.Text("Press Space key", "40px sans-serif", "white")
-    pressSpaceText.x = 480;
-    pressSpaceText.y = 150;
-    pressSpaceText.textAlign = "center";
+    pressSpaceText = <span class="keyword">new</span> createjs.Text(<span class="string"><span class="delimiter">&quot;</span><span class="content">Press Space key</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">40px sans-serif</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>)
+    pressSpaceText.x = <span class="integer">480</span>;
+    pressSpaceText.y = <span class="integer">150</span>;
+    pressSpaceText.textAlign = <span class="string"><span class="delimiter">&quot;</span><span class="content">center</span><span class="delimiter">&quot;</span></span>;
     stage.addChild(pressSpaceText);
 
-    // Tickイベントの登録
+    <span class="comment">// Tickイベントの登録</span>
     createjs.Ticker.timingMode = createjs.Ticker.RAF;
-    createjs.Ticker.addEventListener("tick", handleTick);
+    createjs.Ticker.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">tick</span><span class="delimiter">&quot;</span></span>, handleTick);
 
-    function handleTick() {
-        if (scene === 0) {
+    <span class="keyword">function</span> <span class="function">handleTick</span>() {
+        <span class="keyword">if</span> (scene === <span class="integer">0</span>) {
             stage.update();
         }
 
-        if (scene === 1) {
+        <span class="keyword">if</span> (scene === <span class="integer">1</span>) {
             stage.addChild(player);
 
-            if (isPressRight == true)
-                player.x += 5;
-            if (isPressLeft == true)
-                player.x -= 5;
-            if (isPressDown == true)
-                player.y += 5;
-            if (isPressUp == true)
-                player.y -= 5;
+            <span class="keyword">if</span> (isPressRight == <span class="predefined-constant">true</span>)
+                player.x += <span class="integer">5</span>;
+            <span class="keyword">if</span> (isPressLeft == <span class="predefined-constant">true</span>)
+                player.x -= <span class="integer">5</span>;
+            <span class="keyword">if</span> (isPressDown == <span class="predefined-constant">true</span>)
+                player.y += <span class="integer">5</span>;
+            <span class="keyword">if</span> (isPressUp == <span class="predefined-constant">true</span>)
+                player.y -= <span class="integer">5</span>;
 
-            if (count % 100 === 0) {
-                let enemy = new createjs.Shape();
-                enemy.graphics.beginFill("red").drawCircle(0, 0, 10);
+            <span class="keyword">if</span> (count % <span class="integer">100</span> === <span class="integer">0</span>) {
+                let enemy = <span class="keyword">new</span> createjs.Shape();
+                enemy.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">red</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">10</span>);
 
-                enemy.x = 960;
-                enemy.y = 540 * Math.random();
+                enemy.x = <span class="integer">960</span>;
+                enemy.y = <span class="integer">540</span> * Math.random();
 
                 stage.addChild(enemy);
                 enemyList.push(enemy);
             }
-            count = count + 1;
+            count = count + <span class="integer">1</span>;
 
-            for (let i = 0; i &lt; enemyList.length; i++) {
-                enemyList[i].x -= 2;
+            <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; enemyList.length; i++) {
+                enemyList[i].x -= <span class="integer">2</span>;
             }
 
-            for (let i = 0; i &lt; bulletList.length; i++) {
-                bulletList[i].x += 10;
+            <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; bulletList.length; i++) {
+                bulletList[i].x += <span class="integer">10</span>;
             }
 
-            for (let i = 0; i &lt; enemyList.length; i++) {
-                let enemyLocal = enemyList[i].localToLocal(0, 0, player);
-                if (player.hitTest(enemyLocal.x, enemyLocal.y)) {
+            <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; enemyList.length; i++) {
+                let enemyLocal = enemyList[i].localToLocal(<span class="integer">0</span>, <span class="integer">0</span>, player);
+                <span class="keyword">if</span> (player.hitTest(enemyLocal.x, enemyLocal.y)) {
                     GameOver();
                 }
             }
 
-            for (let i = 0; i &lt; bulletList.length; i++) {
-                for (let j = 0; j &lt; enemyList.length; j++) {
-                    let localPoint = bulletList[i].localToLocal(0, 0, enemyList[j]);
-                    if (enemyList[j].hitTest(localPoint.x, localPoint.y)) {
+            <span class="keyword">for</span> (let i = <span class="integer">0</span>; i &lt; bulletList.length; i++) {
+                <span class="keyword">for</span> (let j = <span class="integer">0</span>; j &lt; enemyList.length; j++) {
+                    let localPoint = bulletList[i].localToLocal(<span class="integer">0</span>, <span class="integer">0</span>, enemyList[j]);
+                    <span class="keyword">if</span> (enemyList[j].hitTest(localPoint.x, localPoint.y)) {
                         stage.removeChild(bulletList[i]);
-                        bulletList.splice(i, 1);
+                        bulletList.splice(i, <span class="integer">1</span>);
 
                         stage.removeChild(enemyList[j]);
-                        enemyList.splice(j, 1);
+                        enemyList.splice(j, <span class="integer">1</span>);
                     }
                 }
             }
@@ -2645,25 +2645,25 @@ jsファイル内で共通の変数を初期化する場合はletをつけては
 <div class="listingblock">
 <div class="title">handlekey.js</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener("load", init);
-function init() {
-    // キーボードイベントの登録
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">load</span><span class="delimiter">&quot;</span></span>, init);
+<span class="keyword">function</span> <span class="function">init</span>() {
+    <span class="comment">// キーボードイベントの登録</span>
+    window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keydown</span><span class="delimiter">&quot;</span></span>, handleKeyDown);
+    window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">keyup</span><span class="delimiter">&quot;</span></span>, handleKeyUp);
 
-    function handleKeyDown(event) {
+    <span class="keyword">function</span> <span class="function">handleKeyDown</span>(event) {
         let keyCode = event.keyCode;
 
-        if (keyCode == 32) { // space
-            if (scene == 0) {
-                scene = 1;
+        <span class="keyword">if</span> (keyCode == <span class="integer">32</span>) { <span class="comment">// space</span>
+            <span class="keyword">if</span> (scene == <span class="integer">0</span>) {
+                scene = <span class="integer">1</span>;
                 stage.removeChild(titleText);
                 stage.removeChild(howToText);
                 stage.removeChild(pressSpaceText);
             }
-            else {
-                let bullet = new createjs.Shape();
-                bullet.graphics.beginFill("white").drawCircle(0, 0, 3);
+            <span class="keyword">else</span> {
+                let bullet = <span class="keyword">new</span> createjs.Shape();
+                bullet.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">0</span>, <span class="integer">0</span>, <span class="integer">3</span>);
                 bullet.x = player.x;
                 bullet.y = player.y;
 
@@ -2671,29 +2671,29 @@ function init() {
                 stage.addChild(bullet);
             }
         }
-        if (keyCode == 39)   // 右
-            isPressRight = true;
+        <span class="keyword">if</span> (keyCode == <span class="integer">39</span>)   <span class="comment">// 右</span>
+            isPressRight = <span class="predefined-constant">true</span>;
 
-        else if (keyCode == 37)  // 左
-            isPressLeft = true;
+        <span class="keyword">else</span> <span class="keyword">if</span> (keyCode == <span class="integer">37</span>)  <span class="comment">// 左</span>
+            isPressLeft = <span class="predefined-constant">true</span>;
 
-        else if (keyCode == 40)  // 下
-            isPressDown = true;
+        <span class="keyword">else</span> <span class="keyword">if</span> (keyCode == <span class="integer">40</span>)  <span class="comment">// 下</span>
+            isPressDown = <span class="predefined-constant">true</span>;
 
-        else if (keyCode == 38)  // 上
-            isPressUp = true;
+        <span class="keyword">else</span> <span class="keyword">if</span> (keyCode == <span class="integer">38</span>)  <span class="comment">// 上</span>
+            isPressUp = <span class="predefined-constant">true</span>;
     }
 
-    function handleKeyUp(event) {
+    <span class="keyword">function</span> <span class="function">handleKeyUp</span>(event) {
         let keyCode = event.keyCode;
-        if (keyCode == 39) { // 右
-            isPressRight = false;// 真偽値が切り替わる
-        } else if (keyCode == 37) { // 左
-            isPressLeft = false;
-        } else if (keyCode == 40) { // 下
-            isPressDown = false;
-        } else if (keyCode == 38) { // 上
-            isPressUp = false;
+        <span class="keyword">if</span> (keyCode == <span class="integer">39</span>) { <span class="comment">// 右</span>
+            isPressRight = <span class="predefined-constant">false</span>;<span class="comment">// 真偽値が切り替わる</span>
+        } <span class="keyword">else</span> <span class="keyword">if</span> (keyCode == <span class="integer">37</span>) { <span class="comment">// 左</span>
+            isPressLeft = <span class="predefined-constant">false</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (keyCode == <span class="integer">40</span>) { <span class="comment">// 下</span>
+            isPressDown = <span class="predefined-constant">false</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (keyCode == <span class="integer">38</span>) { <span class="comment">// 上</span>
+            isPressUp = <span class="predefined-constant">false</span>;
         }
     }
 }</code></pre>
@@ -2702,11 +2702,11 @@ function init() {
 <div class="listingblock">
 <div class="title">GameOver.js</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener("load", init);
+<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">load</span><span class="delimiter">&quot;</span></span>, init);
 
-function init() {
-    GameOver = function() {
-        alert("ゲームオーバー");
+<span class="keyword">function</span> <span class="function">init</span>() {
+    <span class="function">GameOver</span> = <span class="keyword">function</span>() {
+        alert(<span class="string"><span class="delimiter">&quot;</span><span class="content">ゲームオーバー</span><span class="delimiter">&quot;</span></span>);
         createjs.Ticker.removeAllEventListeners();
         stage.removeAllEventListeners();
     }
@@ -2725,7 +2725,7 @@ function init() {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-17 19:45:08 JST
+Last updated 2018-07-25 19:58:16 JST
 </div>
 </div>
 </body>

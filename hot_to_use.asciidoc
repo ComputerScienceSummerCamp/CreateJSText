@@ -4,8 +4,14 @@
 :toc-title: 目次
 :toclevels: 2
 :source-highlighter: coderay
+:imagesdir: ./
+:pdf-style: themes/my-theme.yml
+:pdf-styledir: themes/ 
+:pdf-fontsdir: themes/fonts/
 
-= Javascriptコース
+:doctitle: Javascriptコース
+
+= [doctitle]
 
 //== Javascriptゲームコースサブテキスト
 
