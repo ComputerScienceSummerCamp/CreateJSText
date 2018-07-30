@@ -21,7 +21,7 @@ asciidocファイルを他のファイルに出力する方法を記します。
 === PDFに出力する方法
 
 ```
- asciidoctor-pdf -r asciidoctor-pdf-cjk how_to_use.asciidoc 
+asciidoctor-pdf -r asciidoctor-pdf-cjk how_to_use.asciidoc
 ```
 
 === HTMLに出力する方法
