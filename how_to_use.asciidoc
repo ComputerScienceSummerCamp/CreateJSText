@@ -6,7 +6,7 @@
 :source-highlighter: coderay
 :imagesdir: ./
 :pdf-style: themes/my-theme.yml
-:pdf-styledir: themes/ 
+:pdf-styledir: themes/
 :pdf-fontsdir: themes/fonts/
 
 :doctitle: Javascriptコース
@@ -868,6 +868,12 @@ CAUTION: ゲーム制作の時間は限られています。なるべく早く�
 
 * `cd _path_`:Change Directoryの略、現在居るディレクトリ(カレントディレクトリという)から__path__の場所に移動できる。
 * `ls`:カレントディレクトリに存在するファイル及びディレクトリを見ることができる。
+* `cp _path_ _directory_`:cpはコピーの略。__path__というファイルを__directory__という場所にコピーする。
+* `mv _A_ _B_`:moveの略。以下の2通りの使い方がある。
+
+. __A__というファイル(ディレクトリ)を__B__という場所に移動する。
+. __A__というファイル(ディレクトリ)を__B__という名前に変更する。
+
 * `pwd`:Print working Directoryの略、カレントディレクトリのパスを参照できる。
 * `mkdir _directory_`:make Directoryの略、__directory__という名前のディレクトリを作る。
 * `rm _file_`:removeの略、__file__という名前のファイルを削除する。
