@@ -986,7 +986,15 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect3">
 <h4 id="_canvasタグの追加">5.1.2. canvasタグの追加</h4>
 <div class="paragraph">
-<p>次は、ゲーム画面をどのくらいの大きさにするかを決めます。 <code>&lt;canvas id="myCanvas" width="960" height="540"&gt;&lt;/canvas&gt;</code> というコードを以下のようにbodyタグ内に追加します。</p>
+<p>次は、ゲーム画面をどのくらいの大きさにするかを決めます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myCanvas</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">960</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">540</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>というコードを以下のようにbodyタグ内に追加します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1015,7 +1023,15 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect3">
 <h4 id="_createjsを使えるようにする">5.1.3. CreateJSを使えるようにする</h4>
 <div class="paragraph">
-<p>CreateJSを使うためには、それを読み込む必要があります。どう読み込むかといいますと、以下のようにscriptタグを追加して読み込みます。6行目に追加してある、 <code>&lt;script src="https://code.createjs.com/1.0.0/createjs.min.js"&gt;&lt;/script&gt;</code> ですね。</p>
+<p>CreateJSを使うためには、それを読み込む必要があります。どう読み込むかといいますと、6行目に</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https://code.createjs.com/1.0.0/createjs.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>を追加してCreateJSを読み込みます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1062,7 +1078,12 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p><code>window.addEventListener("load", init);</code> は、CreateJSを読み込んでから、init関数を呼び出します。つまり、CreateJSを完全に読み込んでから、ゲームが始まります。もしCreateJSを読み込む前にゲームが始まってしまうと大変ですから、そういうことがないようにしています。</p>
+<p>以下の命令は、CreateJSを読み込んでから、init関数を呼び出します。つまり、CreateJSを完全に読み込んでから、ゲームが始まります。もしCreateJSを読み込む前にゲームが始まってしまうと大変ですから、そういうことがないようにしています。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">window.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">load</span><span class="delimiter">&quot;</span></span>, init);</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1071,7 +1092,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect3">
 <h4 id="_stageの作成">5.2.1. Stageの作成</h4>
 <div class="paragraph">
-<p>CreateJSでは、まずStageという生地をベースに他のオブジェクトを追加します。ですのでまず最初はStageを作ります。</p>
+<p>CreateJSでは、まずStageという生地をベースに他のオブジェクトを追加します。Stageは以下のように作れます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1081,16 +1102,16 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>（ここからは、init関数の中だけを変更していくので、その他のHTMLは省略します。）</p>
+<p>（ここからはinit関数の中だけを変更していくので、その他のHTMLは省略します。）</p>
 </div>
 <div class="paragraph">
-<p>ここで注意したいのが、new createjs.Stageの中の文字。これは、canvasタグで指定したidと同じにしなければいけません。この場合だと、 <code>myCanvas</code> とする必要があります。</p>
+<p>ここで注意したいのが、new createjs.Stageの中の文字。これは、HTMLのcanvasタグで指定したidと同じにしなければいけません。今回は <code>myCanvas</code> とする必要があります。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_背景の表示">5.2.2. 背景の表示</h4>
 <div class="paragraph">
-<p>このままでは、Stageに何も追加されていないので、次はゲーム画面の背景を追加してみましょう。背景の色はここでは黒色にしています。</p>
+<p>このままではStageに何も追加されていないので、次はゲーム画面の背景を追加してみましょう。背景の色はここでは黒色にしています。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1106,13 +1127,13 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p><code>new createjs.Shape()</code> で、シェイプを作ります。ここで注意してほしいのは、<strong>new</strong>をつけ忘れないようにしてくださいね。それで、これを変数として保存しておきたいので、 <code>var stage = new createjs.Stage("myCanvas");</code> というふうに変数に格納します。</p>
+<p><code>new createjs.Shape()</code> で、シェイプを作ります。ここで注意してほしいのは、<strong>new</strong>をつけ忘れないようにしてくださいね。また、これを変数として保存しておきたいので、 <code>var stage = new createjs.Stage("myCanvas");</code> というふうに変数に格納します。</p>
 </div>
 <div class="paragraph">
 <p><code>bg.graphics.beginFill("black").drawRect(0,0,960,540);</code> は、シェイプの特徴を詳しく記述しています。ここでは背景を指しますね。ではどんなシェイプかといいますと、背景が黒で、座標(0,0)が始点の幅960・高さ540の長方形。これで背景を表しています。</p>
 </div>
 <div class="paragraph">
-<p>あとはその背景をstageに追加します。 <code>stage.addChild(bg);</code> でステージに背景を追加できます。これをしないと、背景が表示されないことになります。</p>
+<p>あとはその背景をstageに追加します。 <code>stage.addChild(bg);</code> でステージに背景を追加できます。これをしないと背景が表示されません。</p>
 </div>
 <div class="paragraph">
 <p>また、最後に <code>stage.update()</code> で毎回背景を描画してくれます。</p>
@@ -1147,7 +1168,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>背景と同じ要領で、プレイヤーもシェイプで作っていきます。プレイヤーの色は白にして、形は丸にでもしておきましょう。</p>
+<p>背景と同じ要領で、プレイヤーもシェイプで作っていきます。プレイヤーの色は白にして、形は丸にしておきましょう。</p>
 </div>
 <div class="paragraph">
 <p>この <code>drawCircle(100,100,10)</code> の意味は、中心の座標が(100,100)で、半径が10の円という意味です。</p>
@@ -1189,7 +1210,12 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p><code>createjs.Ticker.setFPS(60);</code> とすることで、１秒間に60回の頻度で画面が更新されていきます。また、 <code>handleTick</code> という関数を作って、その中に、  <code>stage.update()</code> を入れましょう。</p>
+<p>以下の命令をすることで、１秒間に60回の頻度で画面が更新されていきます。また、 <code>handleTick</code> という関数を作って、その中に、 <code>stage.update()</code> を入れましょう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">createjs.Ticker.setFPS(<span class="integer">60</span>);</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1230,7 +1256,15 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="paragraph">
 <p>何かおかしいですよね。マウスの位置とプレイヤーの位置がずれているような。。
-実は、プレイヤーを円で描画するときに、 <code>player.graphics.beginFill("white").drawCircle(100,100,10);</code> としましたよね。注目してほしいのが 、drawCircleのところ。中心座標が（100,100）となっていますが、実はこれ、相対的な座標になっています。つまり、マウスで動かしても、 <code>マウスの位置+100</code> の位置に円が描画されることになってしまうのです。</p>
+実は、プレイヤーを円で描画するときに、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">player.graphics.beginFill(<span class="string"><span class="delimiter">&quot;</span><span class="content">white</span><span class="delimiter">&quot;</span></span>).drawCircle(<span class="integer">100</span>,<span class="integer">100</span>,<span class="integer">10</span>);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>としましたよね。注目してほしいのが 、drawCircleのところ。中心座標が（100,100）となっていますが、実はこれ、相対的な座標になっています。つまり、マウスで動かしても、 <code>マウスの位置+100</code> の位置に円が描画されることになってしまうのです。</p>
 </div>
 <div class="paragraph">
 <p>これを修正するには、drawCircleのところを <code>drawCircle(0,0,10)</code> にしてしまいましょう。</p>
@@ -1353,7 +1387,20 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>敵を作る時、位置を決めてしまいます。ここでは、 <code>enemy.x = 960;</code> でx座標を960(右端)、 <code>enemy.y = 540 * Math.random();</code> でy座標をランダムにしています。</p>
+<p>敵を作る時、位置を決めてしまいます。ここでは、</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>enemy.x = 960;</code> でx座標を960(右端)</p>
+</li>
+<li>
+<p><code>enemy.y = 540 * Math.random();</code> でy座標をランダム</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>にしています。</p>
 </div>
 <div class="paragraph">
 <p><code>Math.random()</code> は、0以上1未満の小数を返します。よって、 <code>540 * Math.random();</code> は、0以上540未満の数になります。</p>
@@ -1362,7 +1409,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect3">
 <h4 id="_敵を保存しておく配列">5.5.3. 敵を保存しておく「配列」</h4>
 <div class="paragraph">
-<p>ここで、敵を作るだけだと、後に敵を動かすことができなくなるので、敵を保存しておく「配列」用意します。この配列もcountと同じように、init関数の最初の方に宣言します。</p>
+<p>ここで、敵を作るだけだと後に敵を動かすことができなくなるので、敵を保存しておく「配列」を用意します。この配列もcountと同じように、init関数の最初の方に宣言します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1410,7 +1457,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect3">
 <h4 id="_全ての敵を動かす">5.5.4. 全ての敵を動かす</h4>
 <div class="paragraph">
-<p>敵１つずつのx座標を左にずらせば大丈夫そうですね。for文を使って1つずつ配列にアクセスしていって、x座標の値を1ずつ減らしていきましょう。</p>
+<p>敵１つずつのx座標を左にずらせば、敵を動かせそうですね。for文を使って1つずつ配列にアクセスしていって、x座標の値を1ずつ減らしていきましょう。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1583,7 +1630,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p><code>stage.addEventListener("click", handleClick);</code> をすることで、stageにclickのイベントが登録されます。つまり、クリックをした時の処理がかけるようになります。その処理は、新たに作った <code>handleClick</code> 関数で行います。</p>
+<p><code>stage.addEventListener("click", handleClick);</code> をすることで、stageにclickのイベントが登録されます。つまり、クリックした時の処理がかけるようになります。その処理は、新たに作った <code>handleClick</code> 関数で行います。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1624,7 +1671,10 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>敵を作ったのと同じように、弾も作っていきましょう。座標はプレイヤーの座標と同じでいいですね。敵で <code>enemyList</code> を作ったように、弾も <code>bulletList</code> という配列をinitの最初の方に宣言して、その配列に順次格納していくようにしましょう。</p>
+<p>敵を作ったのと同じように、弾も作っていきましょう。座標はプレイヤーの座標と同じでいいですね。</p>
+</div>
+<div class="paragraph">
+<p>敵で <code>enemyList</code> を作ったように、弾も <code>bulletList</code> という配列をinitの最初の方に宣言して、その配列に順次格納していくようにしましょう。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1778,7 +1828,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p><code>bulletList.splice(i, 1);</code> は、配列のi番目の要素から1つだけを削除します。ここでは、敵に当たった弾が削除されますね。ちなみに、<code>bulletList.splice(i, 2);</code> にすると、配列のi番目の要素とその次の要素の2つの要素が削除されてしまいます。</p>
+<p><code>bulletList.splice(i,1)</code> は、配列のi番目の要素から1つだけを削除します。ここでは、敵に当たった弾が削除されますね。ちなみに、 <code>bulletList.splice(i,2)</code> にすると、配列のi番目の要素とその次の要素の2つの要素が削除されてしまいます。</p>
 </div>
 </div>
 </div>
@@ -1880,7 +1930,7 @@ window.addEventListener(<span class="string"><span class="delimiter">&quot;</spa
 <p>スペースキーのキーコードは32らしいので、 <code>const SPACE = 32</code> で、SPACEという <strong>定数</strong> を作ります。定数というのは、あとから値を変更できないもののことです。これでSPACEという定数を使う限り、スペースキーのキーコードが32であることが保証されるので、何か変更したくない値を作りたいときは定数を使いましょう。</p>
 </div>
 <div class="paragraph">
-<p>それから、<code>if (keyCode === SPACE) {}</code> でキーコードがスペースキーであるかを判定して、もしそうであれば、isSpace変数をtrueにします。こうすることで、スペースキーが押されたという状態を表すことができます。キーを離した場合も同様です。</p>
+<p>それから、 <code>if (keyCode === SPACE)</code> でキーコードがスペースキーであるかを判定して、もしそうであれば、isSpace変数をtrueにします。こうすることで、スペースキーが押されたという状態を表すことができます。キーを離した場合も同様です。</p>
 </div>
 <div class="paragraph">
 <p>他のキーについても同様のことが言えます。</p>
@@ -1914,7 +1964,7 @@ player.y = stage.mouseY;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>のようにします。isLeftがtrueなら（左キーが押されているなら）、プレイヤーのx座標を-3します（プレイヤーを左に移動させます）。他の方向でも同じようにすれば、キー入力でプレイヤーを動かすことができます。</p>
+<p>のようにします。isLeftがtrueなら（左キーが押されているなら）、プレイヤーのx座標を <code>-3</code> します（プレイヤーを左に移動させます）。他の方向でも同じようにすれば、キー入力でプレイヤーを動かすことができます。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1989,6 +2039,7 @@ player.regY = player.getBounds().height / <span class="integer">2</span>;</code>
 <div class="paragraph">
 <p><code>player.getBounds().width</code> で画像の幅を取得して、 <code>player.getBounds().height</code> で画像の高さを取得します。あとはそれらを2で割れば、基準点がちょうど真ん中になります。</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -2012,7 +2063,7 @@ player.regY = player.getBounds().height / <span class="integer">2</span>;</code>
 </div>
 </div>
 <div class="paragraph">
-<p>こうすることで、iという名前の変数を宣言し、その中身を1という数字にすることができます。</p>
+<p>こうすることで、 <code>i</code> という名前の変数を宣言し、その中身を1という数字にすることができます。</p>
 </div>
 <div class="paragraph">
 <p>また変数は、その名の通り「変わる数」です。つまり、変数は中身に何かを入れたり、書き換えたりすることができます。変数を書き換えることを、「代入」といいます。</p>
@@ -2027,7 +2078,7 @@ i = <span class="integer">3</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>こうすることで、変数iの中身が1から3に変わります。</p>
+<p>こうすることで、変数 <code>i</code> の中身が1から3に変わります。</p>
 </div>
 <div class="paragraph">
 <p>代入に関して、以下のようなかき方もできます。</p>
@@ -2039,7 +2090,7 @@ i = i + <span class="integer">1</span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>さて、代入した式の右側を見てみると、 <code>i + 1</code> のようになっていて、それをiに代入していますね。これは、`i + 1`した結果（ここでは2）をiに代入しています。最終的にiの中身は2になっているはずです。</p>
+<p>さて、代入した式の右側を見てみると、 <code>i + 1</code> のようになっていて、それを <code>i</code> に代入していますね。これは、 <code>i + 1</code> した結果（ここでは2）を <code>i</code> に代入しています。最終的に <code>i</code> の中身は <code>2</code> になっているはずです。</p>
 </div>
 </div>
 <div class="sect2">
@@ -2055,7 +2106,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>のようにして、出力結果はブラウザのデベロッパーツールのConsoleタブなどで見るといいでしょう。（ブラウザの画面を右クリックして、「検証」を押せばデベロッパーツールが開けます。）</p>
+<p>のようにして、出力結果はブラウザの<strong>デベロッパーツール</strong>のConsoleタブなどで見るといいでしょう。（ブラウザの画面を右クリックして、「検証」を押せばデベロッパーツールが開けます。）</p>
 </div>
 </div>
 <div class="sect2">
@@ -2087,10 +2138,34 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>まずif文の条件文を見てみましょう。 <code>0 &#8656; playerX</code> はplayerXが0以上という条件で、 <code>playerX &#8656; 500</code> はplayerXが500以下という条件ですね。その２つの条件を <code>&amp;&amp;</code> で結んでいます。 <code>A &amp;&amp; B</code> は、AかつBという意味です。つまり、 <code>0 &#8656; playerX &amp;&amp; playerX &#8656; 500</code> という条件文は、「playerXが0以上 かつ　playerXが500以下」ということです。</p>
+<p>まずif文の条件文を見てみましょう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="integer">0</span> &lt;= playerX</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>（ここでは、<code>&#8656;</code> は「以下」という意味で、<code>&lt;</code> だと「未満」となります。）</p>
+<p>はplayerXが0以上という条件で、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">playerX &lt;= <span class="integer">500</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>はplayerXが500以下という条件ですね。その２つの条件を <code>&amp;&amp;</code> で結んでいます。 <code>A &amp;&amp; B</code> は、AかつBという意味です。つまり、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="integer">0</span> &lt;= playerX &amp;&amp; playerX &lt;= <span class="integer">500</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>という条件文は、<strong>playerXが0以上 かつ playerXが500以下</strong>ということです。</p>
+</div>
+<div class="paragraph">
+<p>（ここでは、 <code>&lt;=</code> は「以下」という意味で、<code>&lt;</code> だと「未満」となります。）</p>
 </div>
 <div class="paragraph">
 <p>実際のゲームでは、プレイヤーが画面外に行かないように、「もしプレイヤーの移動先が画面外なら、移動をしない」というふうにすれば、画面外に行かないように実装できます。</p>
@@ -2119,7 +2194,7 @@ console.log(i);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>まず変数iに0を入れて、iが10未満なら <code>console.log(i);</code> を実行し続けます。そして一回実行するごとに、 <code>i` をします。 `i</code> は、 <code>i = i + 1</code> と同じ意味で、iに1ずつ足していきます。</p>
+<p>まず変数iに0を入れて、iが10未満なら <code>console.log(i);</code> を実行し続けます。そして一回実行するごとに、 <code>i++</code> をします。 <code>i++</code> は、 <code>i = i + 1</code> と同じ意味で、iに1ずつ足していきます。</p>
 </div>
 <div class="paragraph">
 <p>上のfor文を実行すると以下のような結果が出るはずです。</p>
@@ -2192,6 +2267,9 @@ bulletX10 = bulletX10 + <span class="integer">3</span>;</code></pre>
 <div class="paragraph">
 <p>こうすることで、配列の中身の値全てを+3することができます。</p>
 </div>
+<div class="paragraph">
+<p>また、配列は色々な型の配列を作ることができます。数字の配列、文字の配列、敵の配列、弾の配列など様々な配列を作ることが可能です。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_関数について">8.6. 関数について</h3>
@@ -2204,14 +2282,14 @@ bulletX10 = bulletX10 + <span class="integer">3</span>;</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>function 関数名() {
-　　処理1
-   処理2
+  処理1
+  処理2
    ...
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>また、関数には引数と返り値を設けることもできます。</p>
+<p>また、関数には引数と返り値をつけることもできます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2219,7 +2297,7 @@ bulletX10 = bulletX10 + <span class="integer">3</span>;</code></pre>
   処理1
   処理2
   ...
-　return 返り値（戻り値）;
+  return 返り値（戻り値）;
 }</code></pre>
 </div>
 </div>
@@ -2293,7 +2371,7 @@ console.log(divide(<span class="integer">9</span>, <span class="integer">3</span
 </div>
 </div>
 <div class="paragraph">
-<p>このようにPlayerクラスから実際のplayerを作ることを、「インスタンスを生成する」と言います。インスタンスを作る際、 <code>new クラス名(constructorに渡す引数１,引数２,&#8230;&#8203;)</code> というようにします。</p>
+<p>このようにPlayerクラスから実際のplayerを作ることを、<strong>インスタンスを生成する</strong>と言います。インスタンスを作る際、 <code>new クラス名(constructorに渡す引数１,引数２,&#8230;&#8203;)</code> というようにします。</p>
 </div>
 <div class="paragraph">
 <p>インスタンスを生成したことで、playerの情報がまとめて管理することができます。例えば、playerのx座標とy座標が知りたくなった時、</p>
@@ -2308,7 +2386,7 @@ console.log(player.y);</code></pre>
 <p>のようにすれば、playerのx座標とy座標がわかります。</p>
 </div>
 <div class="paragraph">
-<p>クラスには、x,yなどのデータ（フィールドと言います）だけではなく、動作も定義できます。例えば、playerが上に動く時は、</p>
+<p>クラスには、x,yなどのデータ（<strong>フィールド</strong>と言います）だけではなく、動作も定義できます。例えば、playerが上に動く時は、</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2334,7 +2412,7 @@ console.log(player.y);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>とすれば、playerのy座標は-3されます。</p>
+<p>とすれば、playerのy座標は-3されます。この動作を定義することを<strong>メソッド</strong>を定義するといいます。</p>
 </div>
 </div>
 </div>
@@ -2384,16 +2462,16 @@ console.log(player.y);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><code>cd <em>path</em></code>:Change Directoryの略、現在居るディレクトリ(カレントディレクトリという)から<em>path</em>の場所に移動できる。</p>
+<p><code>cd <em>path</em></code> : Change Directoryの略、現在居るディレクトリ(カレントディレクトリという)から<em>path</em>の場所に移動できる。</p>
 </li>
 <li>
-<p><code>ls</code>:カレントディレクトリに存在するファイル及びディレクトリを見ることができる。</p>
+<p><code>ls</code> : カレントディレクトリに存在するファイル及びディレクトリを見ることができる。</p>
 </li>
 <li>
-<p><code>cp <em>path</em> <em>directory</em></code>:cpはコピーの略。<em>path</em>というファイルを<em>directory</em>という場所にコピーする。</p>
+<p><code>cp <em>path</em> <em>directory</em></code> : cpはコピーの略。<em>path</em>というファイルを<em>directory</em>という場所にコピーする。</p>
 </li>
 <li>
-<p><code>mv <em>A</em> <em>B</em></code>:moveの略。以下の2通りの使い方がある。</p>
+<p><code>mv <em>A</em> <em>B</em></code> : moveの略。以下の2通りの使い方がある。</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2406,16 +2484,16 @@ console.log(player.y);</code></pre>
 </div>
 </li>
 <li>
-<p><code>pwd</code>:Print working Directoryの略、カレントディレクトリのパスを参照できる。</p>
+<p><code>pwd</code> : Print working Directoryの略、カレントディレクトリのパスを参照できる。</p>
 </li>
 <li>
-<p><code>mkdir <em>directory</em></code>:make Directoryの略、<em>directory</em>という名前のディレクトリを作る。</p>
+<p><code>mkdir <em>directory</em></code> : make Directoryの略、<em>directory</em>という名前のディレクトリを作る。</p>
 </li>
 <li>
-<p><code>rm <em>file</em></code>:removeの略、<em>file</em>という名前のファイルを削除する。</p>
+<p><code>rm <em>file</em></code> : removeの略、<em>file</em>という名前のファイルを削除する。</p>
 </li>
 <li>
-<p><code>rmdir <em>directory</em></code>:remove Directoryの略、<em>directory</em>という名前のディレクトリを削除する。</p>
+<p><code>rmdir <em>directory</em></code> : remove Directoryの略、<em>directory</em>という名前のディレクトリを削除する。</p>
 </li>
 </ul>
 </div>
@@ -2529,7 +2607,8 @@ g*js**はチームリーダーのアカウント名にしてください。
 </div>
 </div>
 <div class="paragraph">
-<p>ファイル分割を行う場合、各々のファイルで共通して使用する変数はindex.htmlのbody要素の中の <code>&lt;script type="text/javascript"&gt;</code> 要素内に <code>let</code> を使って宣言しないとなりません。
+<p>ファイル分割を行う場合、各々のファイルで共通して使用する変数はindex.htmlのbody要素の中の<br>
+<code>&lt;script type="text/javascript"&gt;</code> 要素内に <code>let</code> を使って宣言しないとなりません。
 そうしないと共通の変数を使用することができません。<br>
 また、src属性を用いて3つのjsファイルを宣言しなくてはそのファイルの機能が反映されません。</p>
 </div>
@@ -2646,6 +2725,9 @@ g*js**はチームリーダーのアカウント名にしてください。
 }</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>　<br></p>
+</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -2741,7 +2823,7 @@ jsファイル内で共通の変数を初期化する場合はletをつけては
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-30 17:19:43 JST
+Last updated 2018-08-01 17:43:30 JST
 </div>
 </div>
 </body>

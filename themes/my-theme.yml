@@ -99,7 +99,9 @@ heading:
   #font_color: 181818
   font_color: $base_font_color
   # font_family: $base_font_family
-  font_family: GenShinGothic-P
+  # font_family: GenShinGothic-P
+  # font_family: AozoraMincho
+  font_family: Noto Serif
   font_style: bold
   # h1 is used for part titles (book doctype only)
   h1_font_size: floor($base_font_size * 2.6)
@@ -167,11 +169,17 @@ admonition:
   column_rule_color: $base_border_color
   column_rule_width: $base_border_width
   padding: [0, $horizontal_rhythm, 0, $horizontal_rhythm]
-  #icon:
-  #  tip:
-  #    name: fa-lightbulb-o
-  #    stroke_color: 111111
-  #    size: 24
+  icon:
+   tip:
+     name: fa-fire
+     # name: fa-lightbulb-o
+     # name: fas fa-exclamation-triangle
+     stroke_color: 111111
+     size: 24
+   caution:
+     name: fa-exclamation-triangle
+     stroke_color: f00
+     size: 24
   label:
     text_transform: uppercase
     font_style: bold
