@@ -594,7 +594,7 @@ player.crossOrigin="Anonymous";
 
 こうすれば画像が表示させたと思います。なお、当たり判定はプレイヤー画像と敵の中心１点との当たり判定になっています。
 
-image:img/load-img1.png[]
+image::img/load-img1.png[]
 
 === 画像の基準点を真ん中にする
 
@@ -939,16 +939,18 @@ CAUTION: ゲーム制作の時間は限られています。なるべく早く�
 * `rmdir _directory_` : remove Directoryの略、__directory__という名前のディレクトリを削除する。
 
 .lsとpwdの出力例
-image:img/beginning/output.png[]
+image::img/beginning/output.png[]
 
 === グループワークに取り掛かる前の準備
 
 **チームリーダー**は以下の名前の通りに新しいプロジェクトを作成してください。
 
-image:img/beginning/webstorm.png[]
+image::img/beginning/webstorm.png[]
 
-その後、ターミナル(下の画像のアイコン)を開いて以下のコマンド上から順にを実行してください。 +
-image:img/beginning/terminal.png[] +
+その後、ターミナル(下の画像のアイコン)を開いて以下のコマンド上から順にを実行してください。
+
+image::img/beginning/terminal.png[] 
+
 ($はプロンプトを表します。)
 
 
